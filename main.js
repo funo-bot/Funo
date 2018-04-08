@@ -25,6 +25,6 @@ fs.readdir('./commands/', (err, files) => {
             funo.aliases.set(alias, props.help.name);
         });
     });
-});
+}) 
 
 funo.login(config.token);
