@@ -1,0 +1,15 @@
+{
+  "name": "Funo_BETA",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "pm2 start main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
