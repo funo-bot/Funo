@@ -5,7 +5,7 @@ const moment    = require('moment');
 
 const funo      = new Discord.Client();
 
-const logger  = require('./functions/terminal.js');
+const logger    = require('./functions/terminal.js');
 
 require('./util/eventLoader')(funo);
 
