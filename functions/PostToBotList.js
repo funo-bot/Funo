@@ -4,10 +4,12 @@ const DBL       = require("dblapi.js");
 const config    = require('../config.json');
 const dbl       = new DBL();
 
+const logger    = require('../functions/terminal.js');
+
     try {
-        console.log(chalk.yellow("[Information] Posting to discordbots.org..."))
-        await dbl.postStats(funo.guilds.size).then(() => console.log(chalk.green('[Success] Posted to discordbots.org successfully.')));
+        logger(funo, "[Information] Posting to discordbots.org...")
+        await dbl.postStats(funo.guilds.size).then(() => logger(funo, '[Success] Posted to discordbots.org successfully.'));
     } catch (error) {
-        console.log(error)
+        logger(funo, error)
     }
 }
