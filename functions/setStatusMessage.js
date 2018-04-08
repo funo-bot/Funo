@@ -1,5 +1,7 @@
-const Discord = require('discord.js');
-module.exports = async(funo) => {
+const Discord   = require('discord.js');
+const logger    = require('../functions/terminal');
+
+module.exports = async (funo) => {
     setInterval(function () {
         var activitys = {
             "LISTENING": `${funo.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users!`,
@@ -14,6 +16,6 @@ module.exports = async(funo) => {
         var type = types[Math.floor(Math.random() * types.length)]
         var name = activitys[type]
         funo.user.setActivity(name, { type: type })
-        console.log(`Set to {${type}} {${name}}`)
-    }, 15000)
+        logger(funo, `Status message set to {${type}} {${name}}`)
+    }, 30000)
 }
