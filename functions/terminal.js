@@ -1,4 +1,5 @@
 const moment = require('moment');
+const chalk = require('chalk');
 module.exports = async (funo, message) => {
-    console.log(`[${moment().format('HH:mm:ss')}] ${message}`);
+    console.log(chalk.cyan("["+ moment().format('HH:mm:ss') + "] ") + chalk.white(message));
 };
