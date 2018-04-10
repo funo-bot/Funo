@@ -2,9 +2,10 @@ const Discord   = require('discord.js');
 const logger    = require('../functions/terminal');
 
 module.exports = async (funo) => {
+    funo.user.setActivity('Loading...');
     setInterval(function () {
         var activitys = {
-            "LISTENING": `${funo.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users!`,
+            "LISTENING": `to ${funo.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users!`,
             "WATCHING": `over ${funo.guilds.size} servers`,
             "PLAYING": `with updates!`
         }
@@ -12,7 +13,7 @@ module.exports = async (funo) => {
             "WATCHING",
             "LISTENING",
             "PLAYING"
-        ]
+        ];
         var type = types[Math.floor(Math.random() * types.length)]
         var name = activitys[type]
         funo.user.setActivity(name, { type: type })
