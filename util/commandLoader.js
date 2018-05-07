@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const logger = require('../functions/terminal');
+const logger = require('../util/logger');
 const fs = require('fs');
 module.exports = funo => {
 

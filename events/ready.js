@@ -1,6 +1,6 @@
 const postToBotList     = require('../functions/PostToBotList');
 const setStatusMessage  = require('../functions/setStatusMessage');
-const logger            = require('../functions/terminal.js');
+const logger            = require('../util/logger.js');
 
 
 module.exports = funo => {
