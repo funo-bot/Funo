@@ -4,7 +4,7 @@ const DBL       = require("dblapi.js");
 const config    = require('../config.json');
 const dbl       = new DBL();
 
-const logger    = require('../functions/terminal.js');
+const logger    = require('../util/logger');
 
     try {
         logger(funo, "[Information] Posting to discordbots.org...")
