@@ -5,7 +5,8 @@ const config    = require('../config.json');
 const dbl       = new DBL();
 
 const logger    = require('../util/logger');
-
+    
+    //needs rewitten
     try {
         logger(funo, "[Information] Posting to discordbots.org...")
         await dbl.postStats(funo.guilds.size).then(() => logger(funo, '[Success] Posted to discordbots.org successfully.'));
