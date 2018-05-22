@@ -4,7 +4,7 @@ const logger            = require('../util/logger');
 
 
 module.exports = funo => {
-    //postToBotList(funo);
     setStatusMessage(funo);
+  //postToBotList(funo);
     logger(funo, `Logged in as ${funo.user.username}`);
 };
