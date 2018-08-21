@@ -1,5 +1,3 @@
-const logger = require('../util/logger');
-
 module.exports = async (funo) => {
-    funo.user.setActivity('Im back!');
+    funo.user.setActivity('use $help for a list of commands');
 }

@@ -1,12 +1,10 @@
-const postToBotList = require('../functions/PostToBotList');
 const setStatusMessage = require('../functions/setStatusMessage');
 const logger = require('../util/logger');
-
+const chalk = require('chalk');
 
 module.exports = funo => {
   setStatusMessage(funo);
-  //postToBotList(funo);
-  logger(funo, `Logged in as ${funo.user.username}`);
-  logger(funo, funo.guilds.size);
   
+  logger(funo, chalk.bgGreen(`Logged in as ${funo.user.username}`));
+  logger(funo, chalk.green("Cached " + funo.guilds.size + " servers into memory."));
 };
