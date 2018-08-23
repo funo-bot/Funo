@@ -4,7 +4,6 @@ const chalk = require('chalk');
 
 module.exports = funo => {
   setStatusMessage(funo);
-  
-  logger(funo, chalk.bgGreen(`Logged in as ${funo.user.username}`));
+
   logger(funo, chalk.green("Cached " + funo.guilds.size + " servers into memory."));
 };
