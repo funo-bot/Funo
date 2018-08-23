@@ -10,5 +10,5 @@ module.exports = async (funo) => {
             'Come play 😄'
         ];
         funo.user.setActivity(messages[Math.floor(Math.random() * messages.length)]);
-    }, 20000);
+    }, 30 * 1000);
 }
