@@ -3,11 +3,11 @@ const logger = require('./logger');
 const chalk = require('chalk');
 
 module.exports = funo => {
-  logger(funo, chalk.yellow('Loading Events...')).then(() => {
+  logger.info(funo, 'Loading Events...').then(() => {
     funo.on('ready', () => reqEvent('ready')(funo));
     funo.on('reconnecting', () => reqEvent('reconnecting')(funo));
     funo.on('message', reqEvent('message'));
     funo.on('guildCreate', reqEvent('guildCreate'));
   });
-  logger(funo, chalk.green('All events loaded!'));
+  logger.success(funo, 'All events loaded!');
 };

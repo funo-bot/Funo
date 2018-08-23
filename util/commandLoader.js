@@ -11,17 +11,17 @@ module.exports = funo => {
 
     let commands = files.filter(f => f.split('.').pop() === 'js');
     if (commands.length <= 0) {
-      logger(funo, chalk.yellow('No commands to load!'));
+      logger.info(funo, 'No commands to load!');
       return undefined;
     }
-    logger(funo, chalk.yellow(`Loading ${commands.length} commands...`));
+    logger.info(funo, `Loading ${commands.length} commands...`);
 
     commands.forEach((cmd) => {
       let props = require(`../commands/${cmd}`);
       funo.commands.set(props.help.name, props);
-      logger(funo, chalk.blue(`${props.help.command} command loaded!`));
+      logger.loaded(funo, `${props.help.command} command loaded!`);
     });
 
-    logger(funo, chalk.green('All commands loaded!'));
+    logger.success(funo, 'All commands loaded!');
   });
 }
