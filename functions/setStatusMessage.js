@@ -5,10 +5,10 @@ module.exports = async (funo) => {
             'Runs on Ubuntu 18.10!',
             '2GB of ram 😛',
             'I love you, you love me! ❤',
-            'Loving ' + funo.guilds.size + 'servers!',
+            'Loving ' + funo.guilds.size + ' servers!',
             'making ' + funo.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + 'people happy!',
-            'Come play 😄'
+            'Come play with me 😄'
         ];
         funo.user.setActivity(messages[Math.floor(Math.random() * messages.length)]);
-    }, 20000);
+    }, 30 * 1000);
 }

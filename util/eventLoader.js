@@ -1,6 +1,5 @@
 const reqEvent = (event) => require(`../events/${event}`);
 const logger = require('./logger');
-const chalk = require('chalk');
 
 module.exports = funo => {
   logger.info(funo, 'Loading Events...').then(() => {
