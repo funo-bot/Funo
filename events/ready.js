@@ -1,3 +1,7 @@
+/**
+ * To-Do:
+ *  Implement posting to bot list API logic here. 
+ */
 const setStatusMessage = require('../functions/setStatusMessage');
 const logger = require('../util/logger');
 

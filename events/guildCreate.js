@@ -1,3 +1,7 @@
+/**
+ * To-Do:
+ *  Post to bot list API when removed from a guild. 
+ */
 const logger = require('../util/logger');
 
 module.exports = guild => {

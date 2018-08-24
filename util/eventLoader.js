@@ -7,6 +7,7 @@ module.exports = funo => {
     funo.on('reconnecting', () => reqEvent('reconnecting')(funo));
     funo.on('message', reqEvent('message'));
     funo.on('guildCreate', reqEvent('guildCreate'));
+    funo.on('guildDelete', reqEvent('guildDelete'));
   });
   logger.success(funo, 'All events loaded!');
 };
