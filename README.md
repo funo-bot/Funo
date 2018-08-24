@@ -1,4 +1,7 @@
 # Funo
 
 ### To-Do
-- [ ] Rewrite [PostToBotList.js](https://github.com/DelxHQ/Funo/blob/master/functions/PostToBotList.js)
+- [ ] Basic commands.
+- [ ] Implement upvote only commands.
+- [ ] Write a function to post server count to bot list API.
+- [ ] guildDelete event.
