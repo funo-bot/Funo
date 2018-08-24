@@ -7,5 +7,5 @@ const logger = require('../util/logger');
 
 module.exports = funo => {
   setStatusMessage(funo);
-  logger.success(funo, "Cached " + funo.guilds.size + " servers into memory.");
+  logger.success(funo, funo.user.username + ' is in ' + funo.guilds.size + ' servers');
 };
