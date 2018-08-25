@@ -28,8 +28,8 @@ module.exports.run = async (funo, message, args) => {
             logger.error(e.stack);
         }
     }
-    if (toMute.roles.has(role)) message.channel.send(new Discord.RichEmbed().setColor('RED').setAuthor(message.author.username).setDescription(toMute + ' has already been muted!'));
-    await toMute.addRole(role).then(() => message.channel.send(new Discord.RichEmbed().setColor('GREEN').setDescription(toMute + ' has been muted!')));
+    if (toMute.roles.has(role.id)) return message.channel.send(new Discord.RichEmbed().setColor('RED').setDescription('😕 ' + toMute + ' has already been muted!'));
+    await toMute.addRole(role).then(() => message.channel.send(new Discord.RichEmbed().setColor('GREEN').setDescription('😄 ' + toMute + ' has been muted!')));
 }
 
 module.exports.help = {
