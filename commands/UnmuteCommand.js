@@ -1,7 +1,7 @@
 const error = require('../util/errors');
 const Discord = require('discord.js');
 
-module.exports.run = async(funo, message, args) => {
+module.exports.run = async (funo, message, args) => {
     if (!message.member.hasPermission('MANAGE_MESSAGES')) return error.noPermission(message, 'MANAGE_MESSAGES');
     var toUnmute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
     if (!toUnmute) return error.noArgs(message);
