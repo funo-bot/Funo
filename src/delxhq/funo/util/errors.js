@@ -14,7 +14,7 @@ module.exports.noArgs = (message, noArgsMessage) => {
     var embed = new Discord.RichEmbed()
     .setColor('RED')
     .setAuthor(message.author.username)
-    .setDescription('⛔ ' + noArgsMessage || '⛔ That command requires arguments!')
+    .setDescription('⛔ ' + noArgsMessage && '⛔ That command requires arguments!')
     .setFooter('No arguments');
 
     message.channel.send({ embed });

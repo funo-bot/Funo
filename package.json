@@ -13,6 +13,7 @@
     "chalk": "^2.4.1",
     "dblapi.js": "^2.0.1",
     "discord.js": "^11.4.2",
-    "moment": "^2.22.0"
+    "moment": "^2.22.0",
+    "snekfetch": "^4.0.4"
   }
 }
