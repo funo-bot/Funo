@@ -1,8 +1,8 @@
 const os = require('os');
 const Discord = require('discord.js');
 module.exports.run = async (funo, message, args) => {
-    if (message.author.id !== "462407582284513280") return;
-    if (args1 == "client.token" || args1 == "token") return;
+    if (message.author.id !== "462407582284513280") return undefined;
+    if (args[1] == 'funo.token') return undefined;
     try {
         const code = args.slice(1).join(' ');
         var evaled = eval(code);
@@ -21,7 +21,7 @@ module.exports.run = async (funo, message, args) => {
         message.channel.send(new Discord.RichEmbed()
             .setTitle('**:x:ERROR:**')
             .setColor('0xFF0000')
-            .addField('📥 **Input:**', `\`\`\`xl\n${args1.join(" ")}\n\`\`\``)
+            .addField('📥 **Input:**', `\`\`\`xl\n${args.join(" ")}\n\`\`\``)
             .addField('📤 **Output:**', `\`\`\`xl\n${clean(err)}\n\`\`\``)
             .setFooter('© Funo | Eval', funo.user.avatarURL));
     }
