@@ -1,9 +1,5 @@
 # Funo
 
-```diff
-- This project has been discontinued and will no longer be updated. Feel free to fork it if you wish to do so.
-```
-
 ## To-Do
 - [x] Basic commands.
 - [ ] Implement upvote only commands.
