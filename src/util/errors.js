@@ -1,5 +1,9 @@
 const Discord = require('discord.js');
 
+/*
+ * This needs a complete rewrite
+ */
+
 module.exports.noPermission = (message, permission) => {
     var embed = new Discord.RichEmbed()
     .setColor('RED')

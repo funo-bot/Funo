@@ -5,22 +5,24 @@ const logger = require('../util/logger');
 module.exports = funo => {
   funo.commands = new Discord.Collection();
 
-  fs.readdir('./src/delxhq/funo/commands', (e, files) => {
-    if (e) logger.error(funo, e);
+  fs.readdir(`${__dirname}/../commands`, (e, files) => {
+    if (e) logger.error(e);
 
-    var commands = files.filter(f => f.split('.').pop() === 'js');
+    let commands = files.filter(f => f.split('.').pop() === 'js');
     if (commands.length <= 0) {
-      logger.info(funo, 'No commands to load!');
-      return undefined;
+      logger.info('No commands to load!');
+      return;
     }
-    logger.info(funo, `Loading ${commands.length} commands...`);
 
     commands.forEach((cmd) => {
       var props = require(`../commands/${cmd}`);
       funo.commands.set(props.help.name, props);
-      logger.loaded(funo, `${props.help.command} command loaded!`);
     });
 
-    logger.success(funo, 'All commands loaded!');
+    logger.info('All commands loaded!');
+
+    funo.commands.forEach((key, value) => {
+      logger.debug(`${value} = ${key}`);
+    })
   });
 }
