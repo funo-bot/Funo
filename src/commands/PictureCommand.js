@@ -10,5 +10,6 @@ module.exports.run = async (funo, message) => {
 
 module.exports.help = {
     command: "Random Picture",
-    name: "pic"
+    name: "pic",
+    description: "Get a random picture"
 }

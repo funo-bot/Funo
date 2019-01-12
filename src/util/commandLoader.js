@@ -21,8 +21,8 @@ module.exports = funo => {
 
     logger.info('All commands loaded!');
 
-    funo.commands.forEach((key, value) => {
-      logger.debug(`${value} = ${key}`);
-    })
+    // funo.commands.forEach((key, value) => {
+    //   logger.debug(`${value} = ${key}`);
+    // })
   });
 }

@@ -1,9 +1,9 @@
 {
   "name": "funo",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "src/Funo.js",
   "scripts": {
-    "start": "pm2 start main.js"
+    "start": "nodemon Funo.js"
   },
   "keywords": [],
   "author": "",

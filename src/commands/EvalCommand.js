@@ -32,5 +32,6 @@ function clean(text) {
 }
 module.exports.help = {
     command: 'Eval',
-    name: "eval"
+    name: "eval",
+    description: "Secrets"
 }

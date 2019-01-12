@@ -1,7 +1,12 @@
-# Funo
+<h1 align="center">Funo</h1>
 
-## To-Do
-- [x] Basic commands.
-- [ ] Implement upvote only commands.
-- [ ] Write a function to post server count to bot list API.
-- [ ] guildDelete event.
+<h4 align="center">A multipurpose bot for your Discord server</h4>
+
+```diff
+- Funo is in early development and will contain bugs and look ugly. 
+- Funo is not to be used in prodiction as of now!
+```
+
+## Social Networks
+[![Join the Discord](http://puu.sh/v9UB9/944431c790.png)](https://discord.gg/XtUnRbr)
+[![Twitter](http://puu.sh/v9V9H/ad70c8acf7.png)](https://twitter.com/FunoNetwork)

@@ -15,5 +15,6 @@ module.exports.run = async (funo, message, args) => {
 
 module.exports.help = {
     command: "Unmute",
-    name: "unmute"
+    name: "unmute",
+    description: "Unmute a user in your server"
 }

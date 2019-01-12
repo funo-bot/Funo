@@ -36,5 +36,6 @@ module.exports.run = (funo, message, args) => {
 
 module.exports.help = {
     command: "Ban",
-    name: "ban"
+    name: "ban",
+    description: "Ban a user from your server"
 }

@@ -10,5 +10,6 @@ module.exports.run = async (funo, message) => {
 
 module.exports.help = {
     command: "Random Cat",
-    name: "cat"
+    name: "cat",
+    description: "Get a lovely picture of a cat"
 }

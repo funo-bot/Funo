@@ -36,5 +36,6 @@ module.exports.run = async (message, args) => {
 
 module.exports.help = {
     command: "Mute",
-    name: "mute"
+    name: "mute",
+    description: "Mute a user in your server"
 }

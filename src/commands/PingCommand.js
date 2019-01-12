@@ -11,5 +11,6 @@ module.exports.run = async (funo, message) => {
 
 module.exports.help = {
     command: "Ping",
-    name: "ping"
+    name: "ping",
+    description: "Pong!"
 }
