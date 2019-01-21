@@ -1,0 +1,11 @@
+{
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "editor.fontFamily": "'SF Mono'",
+  "editor.fontWeight": "300",
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false
+}

@@ -10,6 +10,6 @@ require('./util/eventLoader')(funo);
 require('./util/commandLoader')(funo);
 
 funo.login(config.token).then(() => {
-    const finish = Date.now() - start;
-    logger.info(`Done! (${Math.floor(finish / 10)}ms)`)
+  const finish = Date.now() - start;
+  logger.info(`Done! (${Math.floor(finish / 10)}ms)`)
 })
