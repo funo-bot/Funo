@@ -3,7 +3,6 @@ const config = require('../config.json');
 const logger = require('./util/logger');
 
 const funo = new Discord.Client({ disableEveryone: true });
-
 const start = Date.now();
 
 require('./util/eventLoader')(funo);

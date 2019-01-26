@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "src/Funo.js",
   "scripts": {
-    "start": "nodemon Funo.js"
+    "start": "pm2 start src/Funo.js",
+    "restart": "pm2 restart Funo",
+    "stop": "pm2 stop Funo"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,8 @@
     "dblapi.js": "^2.0.1",
     "discord.js": "^11.4.2",
     "moment": "^2.22.0",
-    "snekfetch": "^4.0.4"
+    "opusscript": "0.0.6",
+    "snekfetch": "^4.0.4",
+    "ytdl-core": "^0.29.1"
   }
 }
