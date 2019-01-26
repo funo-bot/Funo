@@ -1,6 +1,7 @@
 const config = require('../../config.json');
 module.exports = message => {
   funo = message.client;
+  
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
 
@@ -12,4 +13,5 @@ module.exports = message => {
 
   let cmd = funo.commands.get(command.slice(config.prefix.length));
   if (cmd) cmd.run(funo, message, args);
+
 }
