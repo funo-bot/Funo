@@ -25,7 +25,10 @@ module.exports.run = (funo, message, args) => {
         days: args[1]
       });
     });
-  message.channel.send(new Discord.RichEmbed().setColor('GREEN').setDescription(`😄 ${toBan} has been banned!`));
+  message.channel.send(new Discord.RichEmbed()
+    .setColor('GREEN')
+    .setDescription(`😄 ${toBan} has been banned!`)
+  )
 }
 
 

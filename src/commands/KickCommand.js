@@ -21,7 +21,11 @@ module.exports.run = (funo, message, args) => {
         reason: reason
       });
     });
-  message.channel.send(new Discord.RichEmbed().setColor('GREEN').setDescription('😄 ' + toKick + ' has been kicked!'));
+    
+  message.channel.send(new Discord.RichEmbed()
+    .setColor('GREEN')
+    .setDescription('😄 ' + toKick + ' has been kicked!')
+  )
 }
 
 

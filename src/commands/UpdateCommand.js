@@ -20,7 +20,7 @@ module.exports.run = async (funo, message) => {
     if (error !== null) {
       logger.error('exec error: ' + error);
     } else {
-     await message.channel.send(new Discord.RichEmbed()
+      await message.channel.send(new Discord.RichEmbed()
         .setColor('GREEN')
         .setDescription('Done! Restarting to apply changes...')
         .setTimestamp()

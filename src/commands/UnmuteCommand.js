@@ -9,8 +9,15 @@ module.exports.run = async (funo, message, args) => {
 
   let role = message.guild.roles.find(r => r.name === 'Funo Muted');
 
-  if (!role || !toUnmute.roles.has(role.id)) return message.channel.send(new Discord.RichEmbed().setColor('RED').setDescription('😕 ' + toUnmute + ' is not muted!'));
-  await toUnmute.removeRole(role).then(() => message.channel.send(new Discord.RichEmbed().setColor('GREEN').setDescription('😄 ' + toUnmute + ' has been unmuted!')));
+  if (!role || !toUnmute.roles.has(role.id)) return message.channel.send(new Discord.RichEmbed()
+    .setColor('RED')
+    .setDescription('😕 ' + toUnmute + ' is not muted!')
+  )
+  
+  await toUnmute.removeRole(role).then(() => message.channel.send(new Discord.RichEmbed()
+    .setColor('GREEN')
+    .setDescription('😄 ' + toUnmute + ' has been unmuted!'))
+  )
 }
 
 module.exports.help = {
