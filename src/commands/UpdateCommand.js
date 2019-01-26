@@ -18,8 +18,8 @@ module.exports.run = async (funo, message) => {
 
   // execute `git pull`
   child = exec('git pull', function (error, stdout, stderr) {
-    sys.print('stdout: ' + stdout);
-    sys.print('stderr: ' + stderr);
+    logger.debug('stdout: ' + stdout);
+    logger.debug('stderr: ' + stderr);
     message.channel.send('```' + stdout + '```')
     if (error !== null) {
       logger.error('exec error: ' + error);
