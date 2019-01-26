@@ -5,11 +5,25 @@ const logger = require('../util/logger');
 module.exports.run = async (message, args) => {
   const toMute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
 
-  if (!message.member.hasPermission('MANAGE_MESSAGES')) return error.noPermission(message, 'MANAGE_MESSAGES');
-  if (!toMute) return error.noArgs(message);
+  if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You lack the `MANAGE_MESSAGES` permisson.')
+    .setColor('RED')
+  )
 
-  if (toMute.id === message.author.id) return error.useOnSelf(message);
-  if (toMute.highestRole.position >= message.member.highestRole.position) return error.userHigherRole(message);
+  if (!toMute) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You provide someone to unmute.')
+    .setColor('RED')
+  )
+
+  if (toMute.id === message.author.id) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You cannot mute yourself!')
+    .setColor('RED')
+  )
+
+  if (toMute.highestRole.position > message.member.highestRole.position) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You cannot mute someone who has a higher role than you!')
+    .setColor('RED')
+  )
 
   var role = message.guild.roles.find(r => r.name === 'Funo Muted');
   if (!role) {

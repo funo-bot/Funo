@@ -2,10 +2,22 @@ const error = require('../util/errors');
 const Discord = require('discord.js');
 
 module.exports.run = async (funo, message, args) => {
-  if (!message.member.hasPermission('MANAGE_MESSAGES')) return error.noPermission(message, 'MANAGE_MESSAGES');
   let toUnmute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
-  if (!toUnmute) return error.noArgs(message);
-  if (toUnmute.id === message.author.id) return error.useOnSelf(message);
+
+  if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You lack the `MANAGE_MESSAGES` permisson.')
+    .setColor('RED')
+  )
+
+  if (!toUnmute) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You provide someone to unmute.')
+    .setColor('RED')
+  )
+
+  if (toUnmute.id === message.author.id) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You cannot unmute yourself!')
+    .setColor('RED')
+  )
 
   let role = message.guild.roles.find(r => r.name === 'Funo Muted');
 

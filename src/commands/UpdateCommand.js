@@ -28,12 +28,6 @@ module.exports.run = async (funo, message) => {
       process.exit()
     }
   })
-  // this deffo needs to be changed.
-  /*
-  setTimeout(() => {
-    process.exit()
-  }, 1000 * 5)
-  */
 }
 
 module.exports.help = {

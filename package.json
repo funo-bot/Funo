@@ -16,6 +16,7 @@
     "dblapi.js": "^2.0.1",
     "discord.js": "^11.4.2",
     "moment": "^2.22.0",
+    "nekos.life": "^2.0.2",
     "opusscript": "0.0.6",
     "snekfetch": "^4.0.4",
     "ytdl-core": "^0.29.1"

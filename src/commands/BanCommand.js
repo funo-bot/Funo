@@ -19,12 +19,13 @@ module.exports.run = (funo, message, args) => {
     .setTitle(`You have been banned from **${message.guild.name}**`)
     .setColor('RED')
     .addField('By:', message.author.username)
-    .addField('Reason:', `\`\`\`${reason}\`\`\``)).then(() => {
+    .addField('Reason:', '```' + reason + '```')).then(() => {
       toBan.ban({
         reason: reason,
         days: args[1]
       });
     });
+
   message.channel.send(new Discord.RichEmbed()
     .setColor('GREEN')
     .setDescription(`😄 ${toBan} has been banned!`)
