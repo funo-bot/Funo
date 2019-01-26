@@ -15,22 +15,25 @@ module.exports.run = async (funo, message) => {
     .setTimestamp()
   )
   // execute `git pull`
-  child = exec('git pull', function (error, stdout, stderr) {
+  child = exec('git pull', async function (error, stdout, stderr) {
     message.channel.send('**`OUTPUT:`**\n```' + stdout + '```')
     if (error !== null) {
       logger.error('exec error: ' + error);
     } else {
-      message.channel.send(new Discord.RichEmbed()
+     await message.channel.send(new Discord.RichEmbed()
         .setColor('GREEN')
         .setDescription('Done! Restarting to apply changes...')
         .setTimestamp()
       )
+      process.exit()
     }
   })
   // this deffo needs to be changed.
+  /*
   setTimeout(() => {
     process.exit()
   }, 1000 * 5)
+  */
 }
 
 module.exports.help = {
