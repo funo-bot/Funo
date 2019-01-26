@@ -4,7 +4,7 @@
 
 ```diff
 - Funo is in early development and will contain bugs and look ugly. 
-- Funo is not to be used in prodiction as of now!
+- Funo is not to be used in production as of now!
 ```
 
 ## Social Networks
