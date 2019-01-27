@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const error = require('../util/errors');
-const logger = require('../util/logger');
+const error = require('../util/Errors');
+const logger = require('../util/Logger');
 
 module.exports.run = async (message, args) => {
   const toMute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);

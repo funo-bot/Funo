@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const logger = require('../util/logger')
+const logger = require('../util/Logger')
 
 module.exports = funo => {
   logger.info(`Logged in with ${funo.guilds.size} servers and ${funo.users.size} users.`)

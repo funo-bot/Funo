@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const config = require('../../config.json')
-const logger = require('../util/logger')
+const logger = require('../util/Logger')
 
 module.exports.run = async (funo, message) => {
   

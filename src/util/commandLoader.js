@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-const logger = require('../util/logger');
+const logger = require('./Logger');
 
 module.exports = funo => {
   funo.commands = new Discord.Collection();

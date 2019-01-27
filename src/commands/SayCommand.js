@@ -1,4 +1,4 @@
-const error = require('../util/errors');
+const error = require('../util/Errors');
 
 module.exports.run = async (funo, message, args) => {
   if (!message.member.hasPermission('MANAGE_MESSAGES')) return error.noPermission(message, 'MANAGE_MESSAGES');

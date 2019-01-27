@@ -1,4 +1,4 @@
-const error = require('../util/errors');
+const error = require('../util/Errors');
 const Discord = require('discord.js');
 
 module.exports.run = async (funo, message, args) => {
