@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/Funo.js",
   "scripts": {
-    "start": "pm2 start src/Funo.js",
+    "start": "npm i && node src/Funo.js",
     "restart": "pm2 restart Funo",
     "stop": "pm2 stop Funo"
   },

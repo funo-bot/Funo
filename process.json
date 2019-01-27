@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "Funo",
+      "script": "npm",
+      "args": "start",
+      "autorestart": true,
+      "restart_delay": 1000
+    }
+  ]
+}
