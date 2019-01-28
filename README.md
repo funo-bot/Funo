@@ -2,12 +2,16 @@
 
 <h4 align="center">A multipurpose bot for your Discord server</h4>
 
+<p align="center">
+<a href="https://www.codacy.com/app/DelxHQ/Funo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DelxHQ/Funo&amp;utm_campaign=Badge_Grade">
+<img src="https://api.codacy.com/project/badge/Grade/ed65f84fb6f742eaab3513eec7d24a1d"/></a>
+</p>
+
 ```diff
 - Funo is in early development and will contain bugs and look ugly. 
 - Funo is not to be used in production as of now!
 ```
 
 ## Social Networks
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eb3a6ddbfd374ef396b5735e00688538)](https://app.codacy.com/app/DelxHQ/Funo?utm_source=github.com&utm_medium=referral&utm_content=DelxHQ/Funo&utm_campaign=Badge_Grade_Dashboard)
-[![Join the Discord](http://puu.sh/v9UB9/944431c790.png)](https://discord.gg/XtUnRbr)
-[![Twitter](http://puu.sh/v9V9H/ad70c8acf7.png)](https://twitter.com/FunoNetwork)
+- [Join the Discord!](https://discord.gg/XtUnRbr)
+- [Funo Network Twitter](https://twitter.com/FunoNetwork)
