@@ -8,5 +8,6 @@
 ```
 
 ## Social Networks
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eb3a6ddbfd374ef396b5735e00688538)](https://app.codacy.com/app/DelxHQ/Funo?utm_source=github.com&utm_medium=referral&utm_content=DelxHQ/Funo&utm_campaign=Badge_Grade_Dashboard)
 [![Join the Discord](http://puu.sh/v9UB9/944431c790.png)](https://discord.gg/XtUnRbr)
 [![Twitter](http://puu.sh/v9V9H/ad70c8acf7.png)](https://twitter.com/FunoNetwork)
