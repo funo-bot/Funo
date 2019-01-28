@@ -1,12 +1,28 @@
 const config = require('../../config.json')
+const Discord = require('discord.js')
 
 module.exports.run = (funo, message) => {
 
-  /* Rewrite this */
+  const max = 5
+  let i = 0
 
-  const commandList = `**Command List:**\n\n${funo.commands.map(cmd => `**${cmd.help.name}** - ${cmd.help.description}`).join('\n')}\n\n[Current prefix is \`${config.prefix}\`]\n\`[To execute a command use ${config.prefix}<command>]\`\n\nJoin our official support Discord if you have any issues with the bot!\nhttps://discord.gg/e4QcD8Q`
+  const funoCommands = Array.from(funo.commands.entries())
 
-  message.channel.send(commandList)
+  while (i < funoCommands.length) {
+    const cmds = funoCommands.slice(i, i + max)
+    const commandList = new Discord.RichEmbed()
+    
+    cmds.forEach(cmd => commandList.addField(cmd[1].help.name, cmd[1].help.description))
+
+    commandList.addField('Information', '[Discord](https://discord.gg/e4QcD8Q) | [Github](https://github.com/DelxHQ/Funo)')
+    commandList.setTitle('Funo Command List')
+    commandList.setColor('#bf80ff')
+
+    message.channel.send(commandList)
+    console.log('Help command ran!')
+
+    i += cmds.length
+  }
 }
 
 module.exports.help = {
