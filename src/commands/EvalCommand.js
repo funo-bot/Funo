@@ -1,10 +1,13 @@
-const os = require('os');
 const Discord = require('discord.js');
+const config = require('../../config.json')
+
 module.exports.run = async (funo, message, args) => {
-  if (message.author.id !== "462407582284513280") return undefined;
-  if (args[1] == 'funo.token') return undefined;
+  
+  if (message.author.id !== config.ownerid) return;
+  if (args[0] == 'funo.token') return;
+  
   try {
-    const code = args.slice(1).join(' ');
+    const code = args.slice(0).join(' ');
     let evaled = eval(code);
 
     if (typeof evaled !== "string")
@@ -33,6 +36,7 @@ function clean(text) {
     .replace(/@/g, "@" + String.fromCharCode(8203)
   ); else return text;
 }
+
 module.exports.help = {
   command: 'Eval',
   name: "eval",
