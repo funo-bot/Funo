@@ -8,7 +8,6 @@ module.exports.run = (funo, message, args) => {
   if (message.author.id === toBan.id) return error.useOnSelf(message, 'You cannot ban yourself!');
   if (isNaN(args[1])) return error.NaN(message, 'The ban length must be a number!');
   if (!toBan) return error.noArgs(message);
-  if (!args[1]) return error.noArgs(message, 'You must provide the ban length (in days)');
   if (!args[2]) return error.noReason(message, 'You must give a reason for banning!');
 
   const reason = args.slice(2).join(' ');
@@ -21,8 +20,7 @@ module.exports.run = (funo, message, args) => {
     .addField('By:', message.author.username)
     .addField('Reason:', '```' + reason + '```')).then(() => {
       toBan.ban({
-        reason: reason,
-        days: args[1]
+        reason: reason
       });
     });
 

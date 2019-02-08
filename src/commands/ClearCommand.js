@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
   message.channel.bulkDelete(fetched).catch(error => message.channel.send(`Error: ${error}`));
 
-  message.channel.send(`Deleting ${fetched.size} messages...`).then((msg) => msg.delete(3000))
+  message.channel.send(`Deleting ${fetched.size} messages...`).then(msg => msg.delete(3000))
 }
 
 
