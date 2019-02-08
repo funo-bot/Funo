@@ -3,7 +3,7 @@ const config = require('../../config.json')
 const logger = require('../util/Logger')
 
 module.exports.run = async (funo, message) => {
-  
+
   if (message.author.id != config.ownerid) return
 
   logger.info('Shutting down...')
@@ -13,7 +13,7 @@ module.exports.run = async (funo, message) => {
     .setTimestamp()
 
   await message.channel.send({ embed })
-  
+
   process.exit(0)
 }
 

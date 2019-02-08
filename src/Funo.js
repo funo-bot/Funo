@@ -12,3 +12,4 @@ funo.login(config.token).then(() => {
   const finish = Date.now() - start;
   logger.info(`Done! (${Math.floor(finish / 10)}ms)`)
 })
+

@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const error = require('../util/Errors');
 const logger = require('../util/Logger');
 
 module.exports.run = async (message, args) => {
