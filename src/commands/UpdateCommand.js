@@ -18,7 +18,7 @@ module.exports.run = async (funo, message) => {
   child = exec('git pull', async function (error, stdout, stderr) {
     message.channel.send('**`OUTPUT:`**\n```' + stdout + '```')
     if (error !== null) {
-      logger.error('exec error: ' + error);
+      message.channel.send('**`EXEC ERROR:`**\n```' + error + '```');
     } else {
       await message.channel.send(new Discord.RichEmbed()
         .setColor('GREEN')
