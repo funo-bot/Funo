@@ -1,0 +1,27 @@
+{
+  "name": "funo",
+  "version": "1.0.0",
+  "main": "src/Funo.js",
+  "scripts": {
+    "start": "npm i && node src/Funo.js",
+    "restart": "pm2 restart Funo",
+    "stop": "pm2 stop Funo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "better-sqlite-pool": "^0.2.0",
+    "chalk": "^2.4.1",
+    "dblapi.js": "^2.0.1",
+    "discord.js": "^11.4.2",
+    "enmap": "^4.7.1",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.2.2",
+    "nekos.life": "^2.0.2",
+    "opusscript": "0.0.6",
+    "snekfetch": "^4.0.4",
+    "ytdl-core": "^0.29.1"
+  }
+}
