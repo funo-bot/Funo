@@ -6,7 +6,7 @@ module.exports.run = (funo, message, args) => {
   var toKick = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
   if (!toKick) return error.noArgs(message);
   if (message.author.id === toKick.id) return error.useOnSelf(message, 'You cannot kick yourself!');
-  if (!args[2]) return error.noReason(message, 'You must give a reason for kicking!');
+  if (!args[1]) return error.noReason(message, 'You must give a reason for kicking!');
 
   var reason = args.slice(2).join(' ');
 
