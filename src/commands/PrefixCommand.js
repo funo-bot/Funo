@@ -14,7 +14,7 @@ module.exports.run = async (funo, message, args) => {
 
   funo.settings.set(message.guild.id, args[0], 'prefix');
   
-  const guildConf = funo.settings.ensure(message.guild.id);
+  const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
 
   message.channel.send(new Discord.RichEmbed()
     .setDescription(`Server prefix has been set to **\`${guildConf.prefix}\`**`)
