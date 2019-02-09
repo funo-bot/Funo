@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 module.exports.run = async (funo, message, args) => {
 
   if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(new Discord.RichEmbed()
-  .setDescription('You lack the `MANAGE_SERVER` permisson.')
+  .setDescription('You lack the **`MANAGE_GUILD`** permisson.')
   .setColor('RED')
 )
 
