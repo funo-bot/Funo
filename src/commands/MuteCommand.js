@@ -1,12 +1,27 @@
-module.exports.run = async (bot, message, args) => {
-  //Check if command executor has the right permissions to do this command. 
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("You do not have the manage messages permission.")
-  //Get the mentioned user, return if there is none.
-  let toMute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
-  if (!toMute) return message.channel.send("You did not specify a user to mute!");
+const Discord = require('discord.js')
 
-  if (toMute.id === message.author.id) return message.channel.sendMessage("You cannot mute yourself.");
-  if (toMute.highestRole.position >= message.member.highestRole.position) return message.channel.sendMessage("You cannot mute a member who is higher or has the same role as you.");
+module.exports.run = async (bot, message, args) => {
+
+  //Check if command executor has the correct permissions to do this command. 
+  if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You lack the `MANAGE_MESSAGES` permisson.')
+    .setColor('RED')
+  )
+
+  //Get the mentioned user, return if there is none.
+  const toMute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
+
+  if (!toMute) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You provide someone to mute.')
+    .setColor('RED')
+  )
+
+  if (toMute.id === message.author.id) return message.channel.send(new Discord.RichEmbed()
+    .setDescription('You cannot unmute yourself!')
+    .setColor('RED')
+  )
+
+  if (toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("You cannot mute a member who is higher or has the same role as you.");
 
   let role = message.guild.roles.find(r => r.name === "Funo Muted")
   if (!role) {
@@ -29,10 +44,15 @@ module.exports.run = async (bot, message, args) => {
     }
   }
 
-  if (toMute.roles.has(role.id)) return message.channel.sendMessage("That user has already been muted!");
+  if (toMute.roles.has(role.id)) return message.channel.send(new Discord.RichEmbed()
+  .setColor('RED')
+  .setDescription('😕 ' + toMute + ' is not muted!')
+)
 
-  await toMute.addRole(role).then()
-  message.channel.send(args[0] + " has been muted");
+  await toMute.addRole(role).then(() => message.channel.send(new Discord.RichEmbed()
+    .setColor('GREEN')
+    .setDescription(toMute + ' has been muted!'))
+  )
 
 }
 

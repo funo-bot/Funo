@@ -2,7 +2,7 @@ const error = require('../util/Errors');
 const Discord = require('discord.js');
 
 module.exports.run = async (funo, message, args) => {
-  let toUnmute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
+  const toUnmute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
 
   if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(new Discord.RichEmbed()
     .setDescription('You lack the `MANAGE_MESSAGES` permisson.')
@@ -28,7 +28,7 @@ module.exports.run = async (funo, message, args) => {
   
   await toUnmute.removeRole(role).then(() => message.channel.send(new Discord.RichEmbed()
     .setColor('GREEN')
-    .setDescription('😄 ' + toUnmute + ' has been unmuted!'))
+    .setDescription(toUnmute + ' has been unmuted!'))
   )
 }
 
