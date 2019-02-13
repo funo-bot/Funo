@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 const logger = require('../util/Logger');
 
 module.exports = guild => {
