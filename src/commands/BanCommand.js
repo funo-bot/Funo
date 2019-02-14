@@ -9,7 +9,7 @@ module.exports.run = (funo, message, args) => {
   if (!toBan) return error.noArgs(message);
   if (!args[1]) return error.noReason(message, 'You must give a reason for banning!');
 
-  const reason = args.slice(2).join(' ');
+  const reason = args.slice(1).join(' ');
 
   if (toBan.highestRole.position >= message.member.highestRole.position) return error.userHigherRole(message);
 
