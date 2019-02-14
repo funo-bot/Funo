@@ -7,7 +7,7 @@ module.exports.run = (funo, message, args) => {
   if (!message.member.hasPermission('BAN_MEMBERS')) return error.noPermission(message, 'BAN_MEMBERS');
   if (message.author.id === toBan.id) return error.useOnSelf(message, 'You cannot ban yourself!');
   if (!toBan) return error.noArgs(message);
-  if (!args[2]) return error.noReason(message, 'You must give a reason for banning!');
+  if (!args[1]) return error.noReason(message, 'You must give a reason for banning!');
 
   const reason = args.slice(2).join(' ');
 
