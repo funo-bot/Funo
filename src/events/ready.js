@@ -20,12 +20,4 @@ module.exports = funo => {
   setInterval(() => {
     dbl.postStats(funo.guilds.size)
   }, 300000)
-
-  dbl.on('posted', () => {
-    funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-      .setColor('GREEN')
-      .setDescription(`Server count posted to DBL`)
-      .setTimestamp()
-    )
-  })
 }
