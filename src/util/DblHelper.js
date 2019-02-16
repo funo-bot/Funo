@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 const config = require('../../config.json')
 const logger = require('./Logger')
 
-module.exports = funo => {
+module.exports = async funo => {
   const dbl = new DBL(config.DBLAPI_token, { webhookPort: 5000, webhookAuth: config.webHookAuth });
 
   dbl.webhook.on('ready', hook => logger.info(`Webhook running at http://${hook.hostname}:${hook.port}${hook.path}`))
