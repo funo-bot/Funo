@@ -11,12 +11,12 @@ module.exports = async funo => {
  
   dbl.webhook.on('vote', async vote => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-      .setDescription(`User ${await getUsername(vote)} just voted!`)
+      .setDescription(`User ${await getUsername(dbl, vote)} just voted!`)
       .setColor('BLUE')
     )
   })
 }
 
-async function getUsername(vote) {
+async function getUsername(dbl, vote) {
   return new Promise(async resolve => resolve((await dbl.getUser(vote.user)).username))
 }
