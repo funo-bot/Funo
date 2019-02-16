@@ -8,7 +8,7 @@ module.exports = async funo => {
  
   dbl.webhook.on('vote', async vote => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-      .setDescription(`User ${await getUsername(vote).username} just voted!`)
+      .setDescription(`User ${await getUsername(vote)} just voted!`)
       .setColor('BLUE')
       .setTimestamp()
     )
