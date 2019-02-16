@@ -18,5 +18,5 @@ module.exports = async funo => {
 }
 
 async function getUsername(vote) {
-  return new Promise(resolve => resolve((await dbl.getUser(vote.user)).username))
+  return new Promise(async resolve => resolve((await dbl.getUser(vote.user)).username))
 }
