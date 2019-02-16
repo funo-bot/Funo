@@ -19,7 +19,7 @@ module.exports = funo => {
 
   setInterval(() => {
     dbl.postStats(funo.guilds.size)
-  }, 5 * 10000)
+  }, 300000)
 
   dbl.on('posted', () => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
