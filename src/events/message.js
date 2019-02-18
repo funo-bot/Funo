@@ -15,5 +15,4 @@ module.exports = message => {
 
   let cmd = funo.commands.get(command.slice(guildConf.prefix.length));
   if (cmd) cmd.run(funo, message, args);
-
-}
+};

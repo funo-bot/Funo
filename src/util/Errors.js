@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 /*
- * This needs a complete rewrite
+ * Depricated
  */
 
 module.exports.noPermission = (message, permission) => {
@@ -12,7 +12,7 @@ module.exports.noPermission = (message, permission) => {
     .setFooter("No permission");
 
   message.channel.send({ embed });
-}
+};
 
 module.exports.noArgs = (message, noArgsMessage) => {
   var embed = new Discord.RichEmbed()
@@ -22,7 +22,7 @@ module.exports.noArgs = (message, noArgsMessage) => {
     .setFooter("No arguments");
 
   message.channel.send({ embed });
-}
+};
 
 module.exports.useOnSelf = (message, errorReason) => {
   var embed = new Discord.RichEmbed()
@@ -32,7 +32,7 @@ module.exports.useOnSelf = (message, errorReason) => {
     .setFooter("Cannot use on self");
 
   message.channel.send({ embed });
-}
+};
 
 module.exports.userHigherRole = (message) => {
   var embed = new Discord.RichEmbed()
@@ -42,7 +42,7 @@ module.exports.userHigherRole = (message) => {
     .setFooter("User has a higher role");
 
   message.channel.send({ embed });
-}
+};
 
 module.exports.noReason = (message, reason) => {
   var embed = new Discord.RichEmbed()
@@ -52,7 +52,7 @@ module.exports.noReason = (message, reason) => {
     .setFooter("No reason specifed");
 
   message.channel.send({ embed });
-}
+};
 
 module.exports.NaN = (message, NaNMessage) => {
   var embed = new Discord.RichEmbed()
@@ -62,4 +62,4 @@ module.exports.NaN = (message, NaNMessage) => {
     .setFooter("Not a number");
 
   message.channel.send({ embed });
-}
+};

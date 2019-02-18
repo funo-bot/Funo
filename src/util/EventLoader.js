@@ -10,4 +10,4 @@ module.exports = funo => {
   funo.on("guildDelete", reqEvent("guildDelete"));
 
   logger.info("All events loaded!");
-}
+};

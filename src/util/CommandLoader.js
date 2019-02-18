@@ -12,7 +12,7 @@ module.exports = funo => {
     if (commands.length <= 0) {
       logger.info("No commands to load!");
       return;
-    }
+    };
 
     commands.forEach((cmd) => {
       var props = require(`../commands/${cmd}`);
@@ -21,4 +21,4 @@ module.exports = funo => {
 
     logger.info("All commands loaded!");
   });
-}
+};

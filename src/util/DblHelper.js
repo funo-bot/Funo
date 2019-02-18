@@ -6,7 +6,7 @@ const logger = require('./Logger');
 module.exports = funo => {
   const dbl = new DBL(config.DBLAPI_KEY, { webhookPort: 5000, webhookAuth: config.webHookAuth });
 
-  dbl.on('posted', () => {
+  dbl.on("posted", () => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
       .setColor('GREEN')
       .setDescription(`Server count posted to DBL`)
@@ -14,16 +14,15 @@ module.exports = funo => {
     );
   });
  
-  dbl.webhook.on('vote', async vote => {
+  dbl.webhook.on("vote", async vote => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-      .setDescription(`${getUserinfo.username}#${getUserinfo.descriminator} just voted on DBL`)
-      .setColor('BLUE')
+      .setDescription(`${await getUsername()} just voted on DBL`)
+      .setColor("BLUE")
       .setTimestamp()
     );
   });
 
   async function getUsername(vote) {
     return new Promise(async resolve => resolve((await dbl.getUser(vote.user)).username));
-  }
-
-}
+  };
+};

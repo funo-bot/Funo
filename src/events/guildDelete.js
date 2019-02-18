@@ -20,4 +20,4 @@ module.exports = guild => {
     .addField("Channels:", guild.channels.size, true)
     .addField("Roles:", guild.roles.size, true)
   );
-}
+};

@@ -20,4 +20,4 @@ module.exports = funo => {
   setInterval(() => {
     dbl.postStats(funo.guilds.size);
   }, 300000);
-}
+};

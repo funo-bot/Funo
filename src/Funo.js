@@ -16,7 +16,7 @@ funo.settings = new Enmap({
 funo.defaultSettings = {
   prefix: config.prefix,
   logChannel: "mod-logs"
-}
+};
 
 require("./util/EventLoader")(funo);
 require("./util/CommandLoader")(funo);
