@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const logger = require("./Logger");
 
-module.exports = funo => {
+module.exports = (funo) => {
   funo.commands = new Discord.Collection();
 
   fs.readdir(`${__dirname}/../commands`, (e, files) => {

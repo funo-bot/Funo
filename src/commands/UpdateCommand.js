@@ -1,13 +1,15 @@
-const Discord = require("discord.js")
-const config = require("../../config.json")
-const logger = require("../util/Logger")
+const Discord = require("discord.js");
+const config = require("../../config.json");
+const logger = require("../util/Logger");
 
 const exec = require("child_process").exec;
 let child;
 
 module.exports.run = async (funo, message) => {
 
-  if (message.author.id != config.ownerid) return;
+  if (message.author.id != config.ownerid) {
+    return;
+  }
 
   message.channel.send(new Discord.RichEmbed()
     .setColor("BLUE")

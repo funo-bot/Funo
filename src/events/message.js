@@ -1,6 +1,6 @@
 const config = require("../../config.json");
 
-module.exports = message => {
+module.exports = (message) => {
   funo = message.client;
 
   if (!message.guild || message.author.bot) {

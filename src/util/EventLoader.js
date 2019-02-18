@@ -1,7 +1,7 @@
 const reqEvent = (event) => require(`../events/${event}`);
 const logger = require("./Logger");
 
-module.exports = funo => {
+module.exports = (funo) => {
   funo.on("ready", () => reqEvent("ready")(funo));
   funo.on("reconnecting", () => reqEvent("reconnecting")(funo));
   funo.on("disconnect", () => reqEvent("disconnect")(funo));

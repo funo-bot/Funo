@@ -23,6 +23,6 @@ require("./util/CommandLoader")(funo);
 require("./util/DblHelper")(funo);
 
 funo.login(config.token).then(() => {
-  const finish = Date.now() - start
+  const finish = Date.now() - start;
   logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
 });

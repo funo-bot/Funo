@@ -1,8 +1,8 @@
-const Discord = require("discord.js")
-const config = require("../../config.json")
+const Discord = require("discord.js");
+const config = require("../../config.json");
 const logger = require("../util/Logger");
 
-module.exports = guild => {
+module.exports = (guild) => {
   logger.info(`Added to new guild ${guild.name}, with ${guild.members.size} members!`);
 
   funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()

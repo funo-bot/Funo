@@ -1,9 +1,9 @@
-const DBL = require('dblapi.js');
-const Discord = require('discord.js');
-const config = require('../../config.json');
-const logger = require('./Logger');
+const DBL = require("dblapi.js");
+const Discord = require("discord.js");
+const config = require("../../config.json");
+const logger = require("./Logger");
 
-module.exports = funo => {
+module.exports = (funo) => {
   const dbl = new DBL(config.DBLAPI_KEY, { webhookPort: 5000, webhookAuth: config.webHookAuth });
 
   async function getUsername(vote) {
@@ -12,7 +12,7 @@ module.exports = funo => {
 
   dbl.on("posted", () => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-      .setColor('GREEN')
+      .setColor("GREEN")
       .setDescription(`Server count posted to DBL`)
       .setTimestamp()
     );
@@ -20,7 +20,7 @@ module.exports = funo => {
  
   dbl.webhook.on("vote", async vote => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-      .setDescription(`${await getUsername()} just voted on DBL`)
+      .setDescription(`${await getUsername(vote.user)} just voted on DBL`)
       .setColor("BLUE")
       .setTimestamp()
     );

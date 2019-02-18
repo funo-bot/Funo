@@ -3,7 +3,7 @@ const logger = require("../util/Logger");
 const config = require("../../config.json");
 const DBL = require("dblapi.js");
 
-module.exports = funo => {
+module.exports = (funo) => {
 
   logger.info(`Logged in with ${funo.guilds.size} servers and ${funo.users.size} users.`);
 
