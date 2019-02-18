@@ -11,13 +11,6 @@ module.exports.run = async (funo, message, args) => {
 
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
 
-  if (!args[0]) {
-    return message.channel.send(new Discord.RichEmbed()
-      .setDescription(`This server"s current prefix is **\`${guildConf.prefix}\`**`)
-      .setColor("YELLOW")
-    );
-  }
-
   funo.settings.set(message.guild.id, args[0], "prefix");
 
   message.channel.send(new Discord.RichEmbed()
