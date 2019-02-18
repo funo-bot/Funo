@@ -1,4 +1,4 @@
-module.exports.run = (funo, message) => {
+module.exports.run = async (funo, message) => {
 
   /* Rewrite this */
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);

@@ -1,7 +1,7 @@
 const error = require("../util/Errors");
 const Discord = require("discord.js");
 
-module.exports.run = (funo, message, args) => {
+module.exports.run = async (funo, message, args) => {
   if (!message.member.hasPermission("KICK_MEMBERS")) {
     return error.noPermission(message, "KICK_MEMBERS");
   }
