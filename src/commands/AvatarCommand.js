@@ -22,5 +22,7 @@ module.exports.run = async (funo, message, args) => {
 }
 
 module.exports.help = {
-  name: "avatar"
+  command: "Avatar",
+  name: "avatar",
+  description: "Get a users avatar."
 };
