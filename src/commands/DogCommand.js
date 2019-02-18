@@ -10,10 +10,10 @@ module.exports.run = async (funo, message) => {
       .setImage(body.url)
     );
   });
-}
+};
 
 module.exports.help = {
   command: "Random dog",
   name: "dog",
   description: "Get a lovely picture of a dog"
-}
+};

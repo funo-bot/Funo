@@ -4,7 +4,7 @@ const logger = require("../util/Logger")
 
 module.exports.run = async (funo, message) => {
 
-  if (message.author.id != config.ownerid) return
+  if (message.author.id !== config.ownerid) return
 
   logger.info("Shutting down...")
   const embed = new Discord.RichEmbed()
@@ -12,13 +12,13 @@ module.exports.run = async (funo, message) => {
     .setDescription("Restarting...")
     .setTimestamp();
 
-  await message.channel.send({ embed })
+  await message.channel.send({ embed });
 
-  process.exit(0)
-}
+  process.exit(0);
+};
 
 module.exports.help = {
   command: "Restart",
   name: "restart",
   description: "Restart Funo."
-}
+};

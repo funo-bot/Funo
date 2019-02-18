@@ -26,11 +26,11 @@ module.exports.run = (funo, message, args) => {
     .setColor("GREEN")
     .setDescription("😄 " + toKick + " has been kicked!")
   );
-}
+};
 
 
 module.exports.help = {
   command: "Kick",
   name: "kick",
   description: "Kick a user from your server"
-}
+};

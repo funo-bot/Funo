@@ -20,10 +20,10 @@ module.exports.run = async (funo, message, args) => {
     .setDescription(`Server prefix has been set to **\`${guildConf.prefix}\`**`)
     .setColor("BLUE")
   );
-}
+};
 
 module.exports.help = {
   command: "Prefix",
   name: "prefix",
   description: "Change Funo's prefix for the Discord server."
-}
+};

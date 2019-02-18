@@ -7,10 +7,10 @@ module.exports.run = async (funo, message) => {
     .setDescription("🏓 Pong! **" + parseInt(Math.round(m.createdTimestamp - message.createdTimestamp)) + "**ms.");
 
   m.edit({ embed });
-}
+};
 
 module.exports.help = {
   command: "Ping",
   name: "ping",
   description: "Pong!"
-}
+};

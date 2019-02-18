@@ -30,10 +30,10 @@ module.exports.run = async (funo, message, args) => {
     .setColor("GREEN")
     .setDescription(toUnmute + " has been unmuted!"))
   );
-}
+};
 
 module.exports.help = {
   command: "Unmute",
   name: "unmute",
   description: "Unmute a user in your server"
-}
+};

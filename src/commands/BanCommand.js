@@ -27,11 +27,11 @@ module.exports.run = async (funo, message, args) => {
     .setColor("GREEN")
     .setDescription(`😄 ${toBan} has been banned!`)
   );
-}
+};
 
 
 module.exports.help = {
   command: "Ban",
   name: "ban",
   description: "Ban a user from your server"
-}
+};

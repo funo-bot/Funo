@@ -25,14 +25,14 @@ module.exports.run = async (funo, message) => {
         .setColor("GREEN")
         .setDescription("Done! Restarting to apply changes...")
         .setTimestamp()
-      )
+      );
       process.exit();
     }
   });
-}
+};
 
 module.exports.help = {
   command: "Update",
   name: "update",
   description: "Update Funo to the latest version."
-}
+};

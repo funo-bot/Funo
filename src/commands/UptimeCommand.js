@@ -9,10 +9,10 @@ module.exports.run = async (bot, message, args) => {
     .setColor("BLUE")
     .setDescription(duration + " since last restart")
   );
-}
+};
 
 module.exports.help = {
   command: "Uptime",
   name: "uptime",
   description: "Get how long Funo has been online for."
-}
+};

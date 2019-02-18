@@ -41,8 +41,8 @@ module.exports.run = async (bot, message, args) => {
       });
     } catch (e) {
       console.log(e.stack);
-    }
-  }
+    };
+  };
 
   if (toMute.roles.has(role.id)) return message.channel.send(new Discord.RichEmbed()
     .setColor("RED")
@@ -53,10 +53,9 @@ module.exports.run = async (bot, message, args) => {
     .setColor("GREEN")
     .setDescription(toMute + " has been muted!"))
   );
-
-}
+};
 
 module.exports.help = {
   name: "mute",
   description: "Mute a user in your Discord server"
-}
+};

@@ -13,10 +13,10 @@ module.exports.run = async (funo, message, args) => {
 
   message.delete().catch();
   message.channel.send(args.join(" "));
-}
+};
 
 module.exports.help = {
   command: "Say",
   name: "say",
   description: "Make Funo say something."
-}
+};

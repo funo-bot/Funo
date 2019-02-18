@@ -12,10 +12,10 @@ module.exports.run = async (funo, message) => {
       .setImage(body.file)
     );
   });
-}
+};
 
 module.exports.help = {
   command: "Random Cat",
   name: "cat",
   description: "Get a lovely picture of a cat"
-}
+};

@@ -18,10 +18,10 @@ module.exports.run = async (funo, message, args) => {
       .setImage(imageBody.url)
     );
   });
-}
+};
 
 module.exports.help = {
   command: "Kiss",
   name: "kiss",
   description: "Kiss a user in a Discord server."
-}
+};
