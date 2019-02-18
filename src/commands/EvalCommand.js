@@ -3,8 +3,13 @@ const config = require("../../config.json")
 
 module.exports.run = async (funo, message, args) => {
   
-  if (message.author.id !== config.ownerid) return;
-  if (args[0] === "funo.token") return;
+  if (message.author.id !== config.ownerid) {
+    return;
+  }
+  
+  if (args[0] === "funo.token") {
+    return;
+  }
   
   try {
     const code = args.slice(0).join(" ");

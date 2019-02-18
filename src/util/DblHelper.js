@@ -6,6 +6,10 @@ const logger = require('./Logger');
 module.exports = funo => {
   const dbl = new DBL(config.DBLAPI_KEY, { webhookPort: 5000, webhookAuth: config.webHookAuth });
 
+  async function getUsername(vote) {
+    return new Promise(async resolve => resolve((await dbl.getUser(vote.user)).username));
+  }
+
   dbl.on("posted", () => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
       .setColor('GREEN')
@@ -21,8 +25,4 @@ module.exports = funo => {
       .setTimestamp()
     );
   });
-
-  async function getUsername(vote) {
-    return new Promise(async resolve => resolve((await dbl.getUser(vote.user)).username));
-  };
 };

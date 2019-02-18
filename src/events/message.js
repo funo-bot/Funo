@@ -3,7 +3,9 @@ const config = require("../../config.json");
 module.exports = message => {
   funo = message.client;
 
-  if (!message.guild || message.author.bot) return
+  if (!message.guild || message.author.bot) {
+    return;
+  }
 
   let messageArray = message.content.split(/\s+/g);
   let command = messageArray[0];
@@ -11,8 +13,12 @@ module.exports = message => {
 
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
 
-  if (message.content.indexOf(guildConf.prefix) !== 0) return;
+  if (message.content.indexOf(guildConf.prefix) !== 0) {
+    return;
+  }
 
   let cmd = funo.commands.get(command.slice(guildConf.prefix.length));
-  if (cmd) cmd.run(funo, message, args);
+  if (cmd) {
+    cmd.run(funo, message, args);
+  }
 };

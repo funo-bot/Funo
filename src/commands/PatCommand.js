@@ -6,10 +6,12 @@ module.exports.run = async (funo, message, args) => {
   const toPat = message.mentions.users.first();
   const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
-  if (!toPat) return message.channel.send(new Discord.RichEmbed()
-    .setColor("RED")
-    .setDescription("You must mention someone to pat them.")
-  );
+  if (!toPat) {
+    return message.channel.send(new Discord.RichEmbed()
+      .setColor("RED")
+      .setDescription("You must mention someone to pat them.")
+    );
+  }
 
   await neko.sfw.pat().then((imageBody) => {
     message.channel.send(new Discord.RichEmbed()

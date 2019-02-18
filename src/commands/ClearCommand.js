@@ -2,10 +2,12 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(new Discord.RichEmbed()
-    .setDescription("You lack the `MANAGE_MESSAGES` permisson.")
-    .setColor("RED")
-  );
+  if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+    return message.channel.send(new Discord.RichEmbed()
+      .setDescription("You lack the `MANAGE_MESSAGES` permisson.")
+      .setColor("RED")
+    );
+  }
 
   const fetched = await message.channel.fetchMessages({ limit: args[0] });
 

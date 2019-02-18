@@ -6,10 +6,12 @@ module.exports.run = async (funo, message, args) => {
   const toNuzzle = message.mentions.users.first();
   const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
-  if (!toNuzzle) return message.channel.send(new Discord.RichEmbed()
-    .setColor("RED")
-    .setDescription("You must mention someone to nuzzle them.")
-  );
+  if (!toNuzzle) {
+    return message.channel.send(new Discord.RichEmbed()
+      .setColor("RED")
+      .setDescription("You must mention someone to nuzzle them.")
+    );
+  }
 
   await neko.sfw.cuddle().then((imageBody) => {
     message.channel.send(new Discord.RichEmbed()
