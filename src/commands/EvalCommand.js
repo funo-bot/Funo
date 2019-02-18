@@ -2,21 +2,27 @@ const Discord = require("discord.js");
 const config = require("../../config.json");
 
 module.exports.run = async (funo, message, args) => {
-  
+
   if (message.author.id !== config.ownerid) {
     return;
   }
-  
+
   if (args[0] === "funo.token") {
     return;
   }
-  
+
   try {
     const code = args.slice(0).join(" ");
     let evaled = eval(code);
 
     if (typeof evaled !== "string")
       evaled = require("util").inspect(evaled);
+
+    function clean(text) {
+      if (typeof (text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203))
+        .replace(/@/g, "@" + String.fromCharCode(8203)
+        ); else return text;
+    };
 
     message.channel.send(new Discord.RichEmbed()
       .setTitle("**:white_check_mark: Success:**")
@@ -34,12 +40,6 @@ module.exports.run = async (funo, message, args) => {
       .setFooter("© Funo | Eval", funo.user.avatarURL)
     );
   };
-};
-
-function clean(text) {
-  if (typeof (text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203))
-    .replace(/@/g, "@" + String.fromCharCode(8203)
-  ); else return text;
 };
 
 module.exports.help = {
