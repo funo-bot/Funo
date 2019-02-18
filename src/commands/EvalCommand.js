@@ -39,7 +39,7 @@ module.exports.run = async (funo, message, args) => {
       .addField("📤 **Output:**", `\`\`\`xl\n${clean(err)}\n\`\`\``)
       .setFooter("© Funo | Eval", funo.user.avatarURL)
     );
-  };
+  }
 };
 
 module.exports.help = {
