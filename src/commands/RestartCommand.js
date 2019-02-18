@@ -10,7 +10,7 @@ module.exports.run = async (funo, message) => {
   const embed = new Discord.RichEmbed()
     .setColor("BLUE")
     .setDescription("Restarting...")
-    .setTimestamp()
+    .setTimestamp();
 
   await message.channel.send({ embed })
 

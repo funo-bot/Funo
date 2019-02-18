@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
   message.channel.send(new Discord.RichEmbed()
     .setColor("BLUE")
     .setDescription(duration + " since last restart")
-  )
+  );
 }
 
 module.exports.help = {

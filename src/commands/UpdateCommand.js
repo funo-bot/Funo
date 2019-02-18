@@ -7,16 +7,17 @@ let child;
 
 module.exports.run = async (funo, message) => {
 
-  if (message.author.id != config.ownerid) return
+  if (message.author.id != config.ownerid) return;
 
   message.channel.send(new Discord.RichEmbed()
     .setColor("BLUE")
     .setDescription("Updating to the latest version...")
     .setTimestamp()
-  )
+  );
+
   // execute `git pull`
   child = exec("git pull", async function (error, stdout, stderr) {
-    message.channel.send("**`OUTPUT:`**\n```" + stdout + "```")
+    message.channel.send("**`OUTPUT:`**\n```" + stdout + "```");
     if (error !== null) {
       message.channel.send("**`EXEC ERROR:`**\n```" + error + "```");
     } else {
@@ -25,9 +26,9 @@ module.exports.run = async (funo, message) => {
         .setDescription("Done! Restarting to apply changes...")
         .setTimestamp()
       )
-      process.exit()
+      process.exit();
     }
-  })
+  });
 }
 
 module.exports.help = {

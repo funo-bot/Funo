@@ -16,5 +16,5 @@ module.exports = guild => {
     .addField("Members:", guild.members.size, true)
     .addField("Channels:", guild.channels.size, true)
     .addField("Roles:", guild.roles.size, true)
-  )
+  );
 }

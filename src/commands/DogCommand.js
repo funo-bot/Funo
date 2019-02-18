@@ -8,7 +8,7 @@ module.exports.run = async (funo, message) => {
       .setTitle("Woof! 🐶")
       .setColor(color)
       .setImage(body.url)
-    )
+    );
   });
 }
 

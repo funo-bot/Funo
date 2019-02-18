@@ -25,7 +25,7 @@ module.exports.run = (funo, message, args) => {
   message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
     .setDescription("😄 " + toKick + " has been kicked!")
-  )
+  );
 }
 
 

@@ -26,7 +26,7 @@ module.exports.run = async (funo, message, args) => {
   message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
     .setDescription(`😄 ${toBan} has been banned!`)
-  )
+  );
 }
 
 
