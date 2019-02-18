@@ -11,8 +11,6 @@ module.exports = message => {
 
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
 
-  console.log(guildConf)
-
   if (message.content.indexOf(guildConf.prefix) !== 0) return;
 
   let cmd = funo.commands.get(command.slice(guildConf.prefix.length));
