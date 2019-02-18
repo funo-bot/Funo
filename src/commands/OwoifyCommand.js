@@ -13,7 +13,7 @@ module.exports.run = async (funo, message, args) => {
   }
 
   await neko.sfw.OwOify({ text: input }).then((messageBody) => {
-    message.channel.send(messageBody.owo)
+    message.channel.send(messageBody.owo);
   });
 };
 

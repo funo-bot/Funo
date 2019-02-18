@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
         });
       });
     } catch (e) {
-      logger.error(e.stack)
+      logger.error(e.stack);
     }
   }
 

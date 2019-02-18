@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const config = require("../../config.json");
 const logger = require("../util/Logger");
 
+let funo;
+
 module.exports = (guild) => {
   funo = guild.client;
 

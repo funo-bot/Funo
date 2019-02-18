@@ -1,4 +1,4 @@
-const config = require("../../config.json");
+let funo;
 
 module.exports = (message) => {
   funo = message.client;

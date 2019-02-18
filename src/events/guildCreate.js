@@ -2,7 +2,11 @@ const Discord = require("discord.js");
 const config = require("../../config.json");
 const logger = require("../util/Logger");
 
+let funo;
+
 module.exports = (guild) => {
+  funo = guild.client;
+
   logger.info(`Added to new guild ${guild.name}, with ${guild.members.size} members!`);
 
   funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()

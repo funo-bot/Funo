@@ -8,7 +8,8 @@ module.exports.run = async (funo, message) => {
     return;
   }
 
-  logger.info("Shutting down...")
+  logger.info("Shutting down...");
+  
   const embed = new Discord.RichEmbed()
     .setColor("BLUE")
     .setDescription("Restarting...")
