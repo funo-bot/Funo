@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
       });
     } catch (e) {
       logger.error(e.stack)
-    };
+    }
   }
 
   if (toMute.roles.has(role.id)) {

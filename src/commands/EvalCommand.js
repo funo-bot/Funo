@@ -22,7 +22,7 @@ module.exports.run = async (funo, message, args) => {
       if (typeof (text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203))
         .replace(/@/g, "@" + String.fromCharCode(8203)
         ); else return text;
-    };
+    }
 
     message.channel.send(new Discord.RichEmbed()
       .setTitle("**:white_check_mark: Success:**")
