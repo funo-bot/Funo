@@ -11,20 +11,20 @@ module.exports.run = async (funo, message, args) => {
     return;
   }
 
+  function clean(text) {
+    if (typeof (text) === "string") {
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    } else {
+      return text;
+    }
+  }
+
   try {
     const code = args.slice(0).join(" ");
     let evaled = eval(code);
 
     if (typeof evaled !== "string") {
       evaled = require("util").inspect(evaled);
-    }
-
-    function clean(text) {
-      if (typeof (text) === "string") {
-        return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-      } else {
-        return text;
-      }
     }
 
     message.channel.send(new Discord.RichEmbed()
