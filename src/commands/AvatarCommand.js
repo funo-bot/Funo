@@ -1,10 +1,10 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 module.exports.run = async (funo, message, args) => {
   
   let m = await message.channel.send(new Discord.RichEmbed()
-    .setDescription('Getting avatar...')
-    .setColor('BLUE')
+    .setDescription("Getting avatar...")
+    .setColor("BLUE")
   );
 
   let target = message.mentions.users.first() || message.author;
@@ -19,7 +19,7 @@ module.exports.run = async (funo, message, args) => {
   });
 
   m.delete();
-}
+};
 
 module.exports.help = {
   command: "Avatar",
