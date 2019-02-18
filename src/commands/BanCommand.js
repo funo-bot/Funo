@@ -16,10 +16,6 @@ module.exports.run = async (funo, message, args) => {
     return error.noArgs(message);
   }
 
-  if (!args[1]) {
-    return error.noReason(message, "You must give a reason for banning!");
-  }
-
   const reason = args.slice(1).join(" ");
 
   if (toBan.highestRole.position >= message.member.highestRole.position) {
@@ -31,9 +27,7 @@ module.exports.run = async (funo, message, args) => {
     .setColor("RED")
     .addField("By:", message.author.username)
     .addField("Reason:", "```" + reason + "```")).then(() => {
-      toBan.ban({
-        reason: reason
-      });
+      toBan.ban();
     });
 
   message.channel.send(new Discord.RichEmbed()

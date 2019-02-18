@@ -16,10 +16,6 @@ module.exports.run = (funo, message, args) => {
     return error.useOnSelf(message, "You cannot kick yourself!");
   }
 
-  if (!args[1]) {
-    return error.noReason(message, "You must give a reason for kicking!");
-  }
-
   var reason = args.slice(2).join(" ");
 
   if (toKick.highestRole.position >= message.member.highestRole.position) {
@@ -31,9 +27,7 @@ module.exports.run = (funo, message, args) => {
     .setColor("RED")
     .addField("By:", message.author.username)
     .addField("Reason:", "```" + reason + "```")).then(() => {
-      toKick.kick({
-        reason: reason
-      });
+      toKick.kick();
     });
 
   message.channel.send(new Discord.RichEmbed()

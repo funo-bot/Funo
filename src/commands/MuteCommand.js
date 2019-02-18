@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const logger = require("../util/Logger");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -48,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
         });
       });
     } catch (e) {
-      console.log(e.stack);
+      logger.error(e.stack)
     };
   };
 

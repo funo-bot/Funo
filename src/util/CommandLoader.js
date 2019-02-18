@@ -6,9 +6,11 @@ module.exports = (funo) => {
   funo.commands = new Discord.Collection();
 
   fs.readdir(`${__dirname}/../commands`, (e, files) => {
-    if (e) logger.error(e);
+    if (e) {
+      logger.error(e);
+    }
 
-    let commands = files.filter(f => f.split(".").pop() === "js");
+    let commands = files.filter((f) => f.split(".").pop() === "js");
     if (commands.length <= 0) {
       logger.info("No commands to load!");
       return;

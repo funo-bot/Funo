@@ -1,4 +1,3 @@
-const error = require("../util/Errors");
 const Discord = require("discord.js");
 
 module.exports.run = async (funo, message, args) => {
@@ -25,7 +24,7 @@ module.exports.run = async (funo, message, args) => {
     );
   }
 
-  let role = message.guild.roles.find(r => r.name === "Funo Muted");
+  let role = message.guild.roles.find((r) => r.name === "Funo Muted");
 
   if (!role || !toUnmute.roles.has(role.id)) {
     return message.channel.send(new Discord.RichEmbed()
