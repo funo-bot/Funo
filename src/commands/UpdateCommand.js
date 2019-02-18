@@ -7,7 +7,7 @@ let child;
 
 module.exports.run = async (funo, message) => {
 
-  if (message.author.id != config.ownerid) {
+  if (message.author.id !== config.ownerid) {
     return;
   }
 
