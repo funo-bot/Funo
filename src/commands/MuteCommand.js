@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
     return message.channel.send("You cannot mute a member who is higher or has the same role as you.");
   }
 
-  let role = message.guild.roles.find(r => r.name === "Funo Muted");
+  let role = message.guild.roles.find((r) => r.name === "Funo Muted");
   if (!role) {
     try {
       role = await message.guild.createRole({

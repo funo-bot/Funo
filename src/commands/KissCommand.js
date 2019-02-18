@@ -1,5 +1,5 @@
-const client = require("nekos.life");
-const neko = new client();
+const Client = require("nekos.life");
+const neko = new Client();
 const Discord = require("discord.js");
 
 module.exports.run = async (funo, message, args) => {
