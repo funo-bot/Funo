@@ -1,6 +1,6 @@
-const Discord = require('discord.js')
-const config = require('../../config.json')
-const logger = require('../util/Logger');
+const Discord = require("discord.js")
+const config = require("../../config.json")
+const logger = require("../util/Logger");
 
 module.exports = guild => {
   funo = guild.client
@@ -11,7 +11,7 @@ module.exports = guild => {
   funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
     .setThumbnail(guild.iconURL)
     .setTitle("Removed from a guild")
-    .setColor('RED')
+    .setColor("RED")
     .addField("Name:", guild.name, true)
     .addField("ID:", guild.id, true)
     .addField("Owned by:", `${guild.owner.user.username}#${guild.owner.user.discriminator}`, true)

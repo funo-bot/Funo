@@ -1,10 +1,10 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
   if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(new Discord.RichEmbed()
-    .setDescription('You lack the `MANAGE_MESSAGES` permisson.')
-    .setColor('RED')
+    .setDescription("You lack the `MANAGE_MESSAGES` permisson.")
+    .setColor("RED")
   )
 
   const fetched = await message.channel.fetchMessages({ limit: args[0] })
@@ -17,5 +17,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
   name: "clear",
-  description: 'Delete X ammount of message in a Discord server.'
+  description: "Delete X ammount of message in a Discord server."
 }

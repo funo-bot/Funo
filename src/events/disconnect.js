@@ -1,5 +1,5 @@
-const logger = require('../util/Logger');
+const logger = require("../util/Logger");
 
 module.exports = funo => {
-  logger.info('Disconnected from the Discord API...')
+  logger.info("Disconnected from the Discord API...")
 }

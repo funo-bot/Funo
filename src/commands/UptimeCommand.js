@@ -6,13 +6,13 @@ module.exports.run = async (bot, message, args) => {
 
   const duration = moment.duration(bot.uptime).format(" D[d], H[h], m[m], s[s]");
   message.channel.send(new Discord.RichEmbed()
-    .setColor('BLUE')
-    .setDescription(duration + ' since last restart')
+    .setColor("BLUE")
+    .setDescription(duration + " since last restart")
   )
 }
 
 module.exports.help = {
-  command: 'Uptime',
+  command: "Uptime",
   name: "uptime",
   description: "Get how long Funo has been online for."
 }

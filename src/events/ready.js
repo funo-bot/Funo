@@ -1,16 +1,16 @@
-const Discord = require('discord.js')
-const logger = require('../util/Logger')
-const config = require('../../config.json')
-const DBL = require('dblapi.js')
+const Discord = require("discord.js")
+const logger = require("../util/Logger")
+const config = require("../../config.json")
+const DBL = require("dblapi.js")
 
 module.exports = funo => {
 
   logger.info(`Logged in with ${funo.guilds.size} servers and ${funo.users.size} users.`)
 
-  funo.user.setPresence({ game: { name: config.prefix + 'help for commands', type: 0 } })
+  funo.user.setPresence({ game: { name: config.prefix + "help for commands", type: 0 } })
 
   funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-    .setColor('GREEN')
+    .setColor("GREEN")
     .setDescription(`Logged in with ${funo.guilds.size} servers and ${funo.users.size} users.`)
     .setTimestamp()
   )
