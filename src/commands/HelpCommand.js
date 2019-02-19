@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = async (funo, message) => {
 
-  const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
   const commandList = new Discord.RichEmbed();
   const commandStr = `${funo.commands.map((cmd) => `**${cmd.help.name}** - ${cmd.help.description}`).join("\n")}`;
 

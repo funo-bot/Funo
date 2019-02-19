@@ -1,38 +1,48 @@
-const error = require("../util/Errors");
 const Discord = require("discord.js");
 
 module.exports.run = async (funo, message, args) => {
   const toBan = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
 
   if (!message.member.hasPermission("BAN_MEMBERS")) {
-    return error.noPermission(message, "BAN_MEMBERS");
-  }
-
-  if (message.author.id === toBan.id) {
-    return error.useOnSelf(message, "You cannot ban yourself!");
+    return message.channel.send(new Discord.RichEmbed()
+      .setDescription("You lack the `BAN_MEMBERS` permisson.")
+      .setColor("RED")
+    );
   }
 
   if (!toBan) {
-    return error.noArgs(message);
+    return message.channel.send(new Discord.RichEmbed()
+      .setDescription("You provide someone to ban.")
+      .setColor("RED")
+    );
   }
 
-  const reason = args.slice(1).join(" ");
+  if (message.author.id === toBan.id) {
+    return message.channel.send(new Discord.RichEmbed()
+      .setDescription("You cannot ban yourself!")
+      .setColor("RED")
+    );
+  }
 
-  if (toBan.highestRole.position >= message.member.highestRole.position) {
-    return error.userHigherRole(message);
+  let reason = args.slice(1).join(" ");
+
+  if (toBan.highestRole.position > message.member.highestRole.position) {
+    return message.channel.send(new Discord.RichEmbed()
+      .setDescription("You cannot ban a member who has a higher role than you.")
+      .setColor("RED")
+    );
   }
 
   await toBan.send(new Discord.RichEmbed()
     .setTitle(`You have been banned from **${message.guild.name}**`)
     .setColor("RED")
     .addField("By:", message.author.username)
-    .addField("Reason:", "```" + reason + "```")).then(() => {
-      toBan.ban();
-    });
+    .addField("Reason:", "```" + reason + "```")).then(() => toBan.ban()
+  );
 
   message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
-    .setDescription(`😄 ${toBan} has been banned!`)
+    .setDescription(`${toBan} has been banned from the server.`)
   );
 };
 

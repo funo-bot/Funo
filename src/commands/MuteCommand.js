@@ -3,7 +3,6 @@ const logger = require("../util/Logger");
 
 module.exports.run = async (bot, message, args) => {
 
-  //Check if command executor has the correct permissions to do this command. 
   if (!message.member.hasPermission("MANAGE_MESSAGES")) {
     return message.channel.send(new Discord.RichEmbed()
       .setDescription("You lack the `MANAGE_MESSAGES` permisson.")
@@ -11,7 +10,6 @@ module.exports.run = async (bot, message, args) => {
     );
   }
 
-  //Get the mentioned user, return if there is none.
   const toMute = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
 
   if (!toMute) {
@@ -23,13 +21,13 @@ module.exports.run = async (bot, message, args) => {
 
   if (toMute.id === message.author.id) {
     return message.channel.send(new Discord.RichEmbed()
-      .setDescription("You cannot unmute yourself!")
+      .setDescription("You cannot mute yourself!")
       .setColor("RED")
     );
   }
 
-  if (toMute.highestRole.position >= message.member.highestRole.position) {
-    return message.channel.send("You cannot mute a member who is higher or has the same role as you.");
+  if (toMute.highestRole.position > message.member.highestRole.position) {
+    return message.channel.send("You cannot mute a member who has a higher role than you.");
   }
 
   let role = message.guild.roles.find((r) => r.name === "Funo Muted");
@@ -56,13 +54,13 @@ module.exports.run = async (bot, message, args) => {
   if (toMute.roles.has(role.id)) {
     return message.channel.send(new Discord.RichEmbed()
       .setColor("RED")
-      .setDescription("😕 " + toMute + " is not muted!")
+      .setDescription(toMute + " has already been muted.")
     );
   }
 
   await toMute.addRole(role).then(() => message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
-    .setDescription(toMute + " has been muted!"))
+    .setDescription(toMute + " has been muted."))
   );
 };
 

@@ -12,14 +12,7 @@ module.exports.run = async (funo, message, args) => {
 
   if (!toUnmute) {
     return message.channel.send(new Discord.RichEmbed()
-      .setDescription("You provide someone to unmute.")
-      .setColor("RED")
-    );
-  }
-
-  if (toUnmute.id === message.author.id) {
-    return message.channel.send(new Discord.RichEmbed()
-      .setDescription("You cannot unmute yourself!")
+      .setDescription("You must provide someone to unmute.")
       .setColor("RED")
     );
   }
@@ -29,13 +22,13 @@ module.exports.run = async (funo, message, args) => {
   if (!role || !toUnmute.roles.has(role.id)) {
     return message.channel.send(new Discord.RichEmbed()
       .setColor("RED")
-      .setDescription("😕 " + toUnmute + " is not muted!")
+      .setDescription(toUnmute + " has not been muted.")
     );
   }
 
   await toUnmute.removeRole(role).then(() => message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
-    .setDescription(toUnmute + " has been unmuted!"))
+    .setDescription(toUnmute + " has been unmuted."))
   );
 };
 
