@@ -1,8 +1,15 @@
+const Discord = require("discord.js");
 module.exports.run = async (funo, message) => {
 
-  /* Rewrite this */
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
-  const commandList = `**Command List:**\n\n${funo.commands.map((cmd) => `**${cmd.help.name}** - ${cmd.help.description}`).join("\n")}\n\n[Current prefix is \`${guildConf.prefix}\`]\n\`[To execute a command use ${guildConf.prefix}<command>]\`\n\nJoin our official support Discord if you have any issues with the bot!\nhttps://discord.gg/e4QcD8Q`;
+  const commandList = new Discord.RichEmbed();
+  const commandStr = `${funo.commands.map((cmd) => `**${cmd.help.name}** - ${cmd.help.description}`).join("\n")}`;
+
+  commandList.setColor("#ba7896");
+  commandList.setTitle("List of Available commands");
+  commandList.setDescription(commandStr);
+  commandList.addBlankField();
+  commandList.addField("Information", "[Discord](https://discord.gg/e4QcD8Q) | [Github](https://github.com/DelxHQ/Funo)");
 
   message.channel.send(commandList);
 };
