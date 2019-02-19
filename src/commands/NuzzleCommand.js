@@ -13,7 +13,7 @@ module.exports.run = async (funo, message, args) => {
     );
   }
 
-  await neko.sfw.cuddle().then((imageBody) => {
+  neko.sfw.cuddle().then((imageBody) => {
     message.channel.send(new Discord.RichEmbed()
       .setDescription(`${message.author} nuzzles ${toNuzzle}`)
       .setColor(color)

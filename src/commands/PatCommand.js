@@ -13,7 +13,7 @@ module.exports.run = async (funo, message, args) => {
     );
   }
 
-  await neko.sfw.pat().then((imageBody) => {
+  neko.sfw.pat().then((imageBody) => {
     message.channel.send(new Discord.RichEmbed()
       .setDescription(`${message.author} pats ${toPat}`)
       .setColor(color)
