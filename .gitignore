@@ -4,3 +4,13 @@ src/data/
 config.json
 
 pcackage-lock.json
+.idea/Funo.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+eng.traineddata

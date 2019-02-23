@@ -20,8 +20,10 @@
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
     "nekos.life": "^2.0.2",
+    "node-fetch": "^2.3.0",
     "opusscript": "0.0.6",
     "snekfetch": "^4.0.4",
+    "tesseract.js": "^1.0.14",
     "urban.js": "^2.4.3",
     "ytdl-core": "^0.29.1"
   }

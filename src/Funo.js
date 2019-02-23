@@ -21,6 +21,8 @@ funo.defaultSettings = {
 require("./util/EventLoader")(funo);
 require("./util/CommandLoader")(funo);
 require("./util/DblHelper")(funo);
+var imagemanipulation = require("./util/ImageManipulation")
+funo.imageManipulator = new imagemanipulation(funo)
 
 funo.login(config.token).then(() => {
   const finish = Date.now() - start;
