@@ -14,6 +14,7 @@ module.exports.run = async (funo, message, args) => {
     } else {
         console.log(args);
         const embed = new Discord.RichEmbed();
+
         embed.setColor("#ffd500");
         embed.setDescription("Loading...");
         var tooEarly = false
