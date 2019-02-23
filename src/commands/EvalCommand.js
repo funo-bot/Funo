@@ -3,7 +3,7 @@ const config = require("../../config.json");
 
 module.exports.run = async (funo, message, args) => {
 
-  if (message.author.id !== config.ownerid) {
+  if (!config.ownerid.includes(message.author.id)) {
     return;
   }
 

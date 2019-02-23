@@ -4,10 +4,10 @@ const logger = require("../util/Logger");
 
 module.exports.run = async (funo, message) => {
 
-  if (message.author.id !== config.ownerid) {
+  if (!config.ownerid.includes(message.author.id)) {
     return;
   }
-
+  
   logger.info("Shutting down...");
   
   const embed = new Discord.RichEmbed()
