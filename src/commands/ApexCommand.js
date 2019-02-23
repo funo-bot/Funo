@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const snekfetch = require("snekfetch")
+const snekfetch = require("snekfetch");
 
 module.exports.run = async (funo, message, args) => {
 

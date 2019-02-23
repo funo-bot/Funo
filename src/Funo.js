@@ -2,9 +2,12 @@ const Discord = require("discord.js");
 const Enmap = require("enmap");
 const config = require("../config.json");
 const logger = require("./util/Logger");
+const imagemanipulation = require("./util/ImageManipulation");
 
 const funo = new Discord.Client({ disableEveryone: true });
 const start = Date.now();
+
+funo.imageManipulator = new imagemanipulation(funo);
 
 funo.settings = new Enmap({
   name: "settings",
@@ -21,8 +24,6 @@ funo.defaultSettings = {
 require("./util/EventLoader")(funo);
 require("./util/CommandLoader")(funo);
 require("./util/DblHelper")(funo);
-var imagemanipulation = require("./util/ImageManipulation")
-funo.imageManipulator = new imagemanipulation(funo)
 
 funo.login(config.token).then(() => {
   const finish = Date.now() - start;
