@@ -8,15 +8,15 @@ module.exports.run = async (funo, message, args) => {
     if (!args[0]) {
         const embed = new Discord.RichEmbed();
 
-        embed.setColor("#ffd500");
-        embed.setDescription("Loading...");
+        embed.setColor("#ff5050");
+        embed.setDescription("You didn't provide an image URL");
         message.channel.send(embed)
     } else {
         console.log(args)
         const embed = new Discord.RichEmbed();
 
-        embed.setColor("#ff5050");
-        embed.setDescription("You didn't provide an image URL");
+        embed.setColor("#ffd500");
+        embed.setDescription("Loading...");
         var tooEarly = false
         message.channel.send(embed).then(msg=> {
             funo.imageManipulator.image2text({
