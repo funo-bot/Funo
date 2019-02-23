@@ -14,7 +14,6 @@ module.exports.run = async (funo, message, args) => {
 
   snekfetch.get(`https://apextab.com/api/search.php?platform=${args[0]}&search=${args[1]}`).then((r) => {
     let body = r.body.results[0];
-    console.log(body)
     message.channel.send(new Discord.RichEmbed()
       .setTitle(`Stats for ${body.name}`)
       .setThumbnail(body.avatar)
