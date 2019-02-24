@@ -12,6 +12,7 @@ module.exports.run = async (funo, message, args) => {
   }
 
   function clean(text) {
+    if (text.includes(JSON.stringify(config)) || text.includes(config.token)) return;
     if (typeof (text) === "string") {
       return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
     } else {

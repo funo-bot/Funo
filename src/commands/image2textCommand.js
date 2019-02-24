@@ -21,7 +21,7 @@ module.exports.run = async (funo, message, args) => {
   embed.setDescription("Loading...");
   tooEarly = false
   message.channel.send(embed).then(msg => {
-    funo.imageManipulator.image2text({
+    require("../util/image2text.js")({
       url: args[0],
       callback: async (type, object) => {
         switch (type) {

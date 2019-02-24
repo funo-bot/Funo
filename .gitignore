@@ -14,3 +14,4 @@ pcackage-lock.json
 *.sqlite-shm
 *.sqlite-wal
 eng.traineddata
+.idea/workspace.xml___jb_tmp___

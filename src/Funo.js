@@ -2,12 +2,9 @@ const Discord = require("discord.js");
 const Enmap = require("enmap");
 const config = require("../config.json");
 const logger = require("./util/Logger");
-const imagemanipulation = require("./util/ImageManipulation");
 
 const funo = new Discord.Client({ disableEveryone: true });
 const start = Date.now();
-
-funo.imageManipulator = new imagemanipulation(funo);
 
 funo.settings = new Enmap({
   name: "settings",
