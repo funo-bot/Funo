@@ -61,7 +61,6 @@ module.exports.run = async (funo, message, args) => {
       }
     })
   })
-}
 };
 
 module.exports.help = {
