@@ -10,7 +10,7 @@ module.exports.run = async (funo, message, args) => {
   let tooEarly;
 
   if (!args[0]) {
-    return message.chennel.send(new Discord.RichEmbed()
+    return message.channel.send(new Discord.RichEmbed()
       .setColor("#ff5050")
       .setDescription("You didn't provide an image URL")
     );
