@@ -20,5 +20,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Owoify",
   name: "owoify",
+    category: "fun",
   description: "OwOify your message."
 };

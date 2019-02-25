@@ -49,5 +49,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Eval",
   name: "eval",
+    category: "util",
   description: "Secrets"
 };

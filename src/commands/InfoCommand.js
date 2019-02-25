@@ -23,5 +23,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Info",
   name: "info",
+    category: "util",
   description: "Get information about Funo."
 };

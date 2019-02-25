@@ -30,5 +30,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Urban",
   name: "urban",
+    category: "util",
   description: "Search urban dictionary"
 };

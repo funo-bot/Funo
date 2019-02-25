@@ -50,5 +50,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Ban",
   name: "ban",
+    category: "moderation",
   description: "Ban a user from your server"
 };

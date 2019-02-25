@@ -32,5 +32,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Apex",
   name: "apex",
+    category: "fun",
   description: "Get a players Apex Legends stats."
 };

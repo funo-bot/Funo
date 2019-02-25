@@ -19,5 +19,6 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
   name: "clear",
+    category: "moderation",
   description: "Delete X ammount of message in a Discord server."
 };

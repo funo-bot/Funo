@@ -66,5 +66,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "image2text",
   name: "image2text",
+    category: "image",
   description: "Pull text from an image"
 };
