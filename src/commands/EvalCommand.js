@@ -50,5 +50,6 @@ module.exports.help = {
   command: "Eval",
   name: "eval",
     category: "util",
+    private: true,
   description: "Secrets"
 };

@@ -17,7 +17,7 @@ module.exports.run = async (funo, message, args) => {
       const commandList = new Discord.RichEmbed();
       const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
 
-      var util = await funo.commands.filter(c=> c.help.category === "util").map(c => "`" + c.help.name + "`").join(", ")
+      var util = await funo.commands.filter(c=> c.help.category === "util" && !c.help.private).map(c => "`" + c.help.name + "`").join(", ")
       var moderation = await funo.commands.filter(c=> c.help.category === "moderation").map(c => "`" + c.help.name + "`").join(", ")
       var fun = await funo.commands.filter(c=> c.help.category === "fun").map(c => "`" + c.help.name + "`").join(", ")
       var image = await funo.commands.filter(c=> c.help.category === "image").map(c => "`" + c.help.name + "`").join(", ")

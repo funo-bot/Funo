@@ -24,5 +24,6 @@ module.exports.help = {
   command: "Restart",
   name: "restart",
     category: "util",
+    private: true,
   description: "Restart Funo."
 };
