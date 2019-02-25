@@ -9,14 +9,6 @@ module.exports = (funo) => {
   async function getUsername(vote) {
     return new Promise(async (resolve) => resolve((await dbl.getUser(vote.user)).username));
   }
-
-  dbl.on("posted", () => {
-    funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
-      .setColor("GREEN")
-      .setDescription("Server count posted to DBL")
-      .setTimestamp()
-    );
-  });
  
   dbl.webhook.on("vote", async (vote) => {
     funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
