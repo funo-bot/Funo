@@ -75,7 +75,7 @@ module.exports.execute = async (bot, args, cb)=> {
         const image = await canvasRenderService.renderToBuffer(configuration);
         const dataUrl = await canvasRenderService.renderToDataURL(configuration);
         const stream = canvasRenderService.renderToStream(configuration);
-        var Jimp = require("Jimp")
+        var Jimp = require("jimp")
 
         Jimp.read(image).then(async imageone=> {
             Jimp.read("https://i.imgur.com/Ow3ZyN5.png").then(async imagetwo=> {
