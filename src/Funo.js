@@ -16,9 +16,18 @@ funo.settings = new Enmap({
   cloneLevel: "deep"
 });
 
+funo.stats = new Enmap({
+    name: "settings",
+    fetchAll: false,
+    autoFetch: true,
+    cloneLevel: "deep"
+});
+
 funo.defaultSettings = {
   prefix: config.prefix,
-  logChannel: "mod-logs",
+  logChannel: "mod-logs"
+};
+funo.defaultStats = {
     memberArray: [],
     dateArray: []
 };

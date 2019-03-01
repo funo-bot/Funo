@@ -4,7 +4,7 @@ Date: 2/28/2019, 11:53 PM
 */
 
 module.exports = async (bot, guild) => {
-    var config = await bot.settings.ensure(guild.id, bot.defaultSettings)
+    var config = await bot.stats.ensure(guild.id, bot.defaultStats)
 
     if (!config.memberArray) config["memberArray"] = []
     if (!config.dateArray) config["dateArray"] = []
