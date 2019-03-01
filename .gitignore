@@ -15,3 +15,4 @@ pcackage-lock.json
 *.sqlite-wal
 eng.traineddata
 .idea/workspace.xml___jb_tmp___
+charttest.js

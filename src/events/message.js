@@ -5,7 +5,7 @@ let funo;
 
 module.exports = (message) => {
   funo = message.client;
-
+    funo.addToStat(funo, message.guild)
   if (!message.guild || message.author.bot) {
     return;
   }

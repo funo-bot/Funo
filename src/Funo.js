@@ -5,7 +5,10 @@ const logger = require("./util/Logger");
 
 const funo = new Discord.Client({ disableEveryone: true });
 const start = Date.now();
+const ImageHandler = require("./ImageHandler/ImageHandler")
 
+funo.ImageHandler = new ImageHandler(funo)
+funo.addToStat = require("./util/addToStat")
 funo.settings = new Enmap({
   name: "settings",
   fetchAll: false,
@@ -15,7 +18,9 @@ funo.settings = new Enmap({
 
 funo.defaultSettings = {
   prefix: config.prefix,
-  logChannel: "mod-logs"
+  logChannel: "mod-logs",
+    memberArray: [],
+    dateArray: []
 };
 
 require("./util/EventLoader")(funo);

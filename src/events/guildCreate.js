@@ -6,7 +6,7 @@ let funo;
 
 module.exports = (guild) => {
   funo = guild.client;
-
+  funo.addToStat(funo, guild)
   logger.info(`Added to new guild ${guild.name}, with ${guild.members.size} members!`);
 
   funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
