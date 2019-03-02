@@ -38,5 +38,8 @@ module.exports.help = {
   name: "update",
   category: "util",
   private: true,
-  description: "Update Funo to the latest version."
+  description: "Update Funo to the latest version.",
+  aliases: [
+    "refresh"
+  ]
 };

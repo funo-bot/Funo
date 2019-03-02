@@ -26,5 +26,9 @@ module.exports.help = {
   command: "Nuzzle",
   name: "nuzzle",
   category: "fun",
-  description: "Nuzzle a user in a Discord server."
+  description: "Nuzzle a user in a Discord server.",
+  aliases: [
+    "cuddle",
+    "snuggle"
+  ]
 };

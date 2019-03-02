@@ -26,5 +26,8 @@ module.exports.help = {
   command: "Kiss",
   name: "kiss",
   category: "fun",
-  description: "Kiss a user in a Discord server."
+  description: "Kiss a user in a Discord server.",
+  aliases: [
+    "smooch"
+  ]
 };

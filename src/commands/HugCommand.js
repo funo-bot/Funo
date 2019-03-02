@@ -26,5 +26,8 @@ module.exports.help = {
   command: "Hug",
   name: "hug",
   category: "fun",
-  description: "Hug a user in a Discord server."
+  description: "Hug a user in a Discord server.",
+  aliases: [
+    "hugging"
+  ]
 };

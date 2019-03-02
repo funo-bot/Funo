@@ -15,5 +15,8 @@ module.exports.help = {
   command: "Ping",
   name: "ping",
   category: "util",
-  description: "Pong!"
+  description: "Pong!",
+  aliases: [
+    "latency"
+  ]
 };

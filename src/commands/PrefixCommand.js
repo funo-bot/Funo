@@ -23,5 +23,8 @@ module.exports.help = {
   command: "Prefix",
   name: "prefix",
   category: "util",
-  description: "Change Funo's prefix for the Discord server."
+  description: "Change Funo's prefix for the Discord server.",
+  aliases: [
+    "setprefix"
+  ]
 };

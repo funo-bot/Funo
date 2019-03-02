@@ -51,5 +51,9 @@ module.exports.help = {
   name: "eval",
   category: "util",
   private: true,
-  description: "Secrets"
+  description: "Secrets",
+  aliases: [
+    "owner",
+    "secret"
+  ]
 };

@@ -15,5 +15,8 @@ module.exports.help = {
   command: "Uptime",
   name: "uptime",
   category: "util",
-  description: "Get how long Funo has been online for."
+  description: "Get how long Funo has been online for.",
+  aliases: [
+    "runtime"
+  ]
 };

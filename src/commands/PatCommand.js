@@ -28,6 +28,7 @@ module.exports.help = {
   category: "fun",
   description: "Pat a user in a Discord server.",
   aliases: [
-    "headpat"
+    "headpat",
+    "pet"
   ]
 };

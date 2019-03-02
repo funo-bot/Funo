@@ -50,5 +50,8 @@ module.exports.help = {
   command: "Kick",
   name: "kick",
   category: "moderation",
-  description: "Kick a user from your server"
+  description: "Kick a user from your server",
+  aliases: [
+    "kickuser"
+  ]
 };

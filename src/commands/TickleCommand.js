@@ -26,5 +26,8 @@ module.exports.help = {
   command: "Tickle",
   name: "tickle",
   category: "fun",
-  description: "Tickle a user in a Discord server."
+  description: "Tickle a user in a Discord server.",
+  aliases: [
+    "tingle"
+  ]
 };
