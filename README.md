@@ -14,5 +14,5 @@
 ```
 
 ## Social Networks
-- [Join the Discord!](https://discord.gg/XtUnRbr)
+- [Join the Discord!](https://discord.gg/UwszqWM)
 - [Funo Network Twitter](https://twitter.com/FunoNetwork)
