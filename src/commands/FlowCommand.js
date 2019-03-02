@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     var date = config.dateArray.slice(-7)
     var shit = [{
         label: 'Online',
-        data: [dates[dates.length-7] || dates[0], dates[dates.length-6] || dates[0], dates[dates.length-5] || dates[0], dates[dates.length-4] || dates[0], dates[dates.length-3] || dates[0], dates[dates.length-2] || dates[0], dates[dates.length-1] || dates[0]],
+        data: [dates[dates.length-7] || dates[0], dates[dates.length-6] || dates[0], dates[dates.length-5] || dates[0], dates[dates.length-4] || dates[0], dates[dates.length-3] || dates[0], dates[dates.length-2] || dates[0], message.guild.members.size],
         // borderColor: [ 'black','black',"black","black" ],
         borderColor: [ "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)" ],
         backgroundColor: [ "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)" ],
