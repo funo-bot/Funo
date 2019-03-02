@@ -11,7 +11,7 @@ module.exports = (message) => {
   }
 
   let messageArray = message.content.split(/\s+/g);
-  let command = messageArray[0];
+  let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
 
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);

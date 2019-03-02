@@ -24,7 +24,6 @@ module.exports.help = {
   category: "util",
   description: "Make Funo say something.",
   aliases: [
-    "i",
     "repeat"
   ]
 };
