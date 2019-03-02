@@ -3,9 +3,9 @@
 <h4 align="center">A multipurpose bot for your Discord server</h4>
 
 <p align="center">
-<a href="https://discordbots.org/bot/332971222897786892" >
-  <img src="https://discordbots.org/api/widget/332971222897786892.svg" alt="Funo" />
-</a>
+  <a href="https://discordbots.org/bot/332971222897786892" >
+    <img src="https://discordbots.org/api/widget/332971222897786892.svg" alt="Funo" />
+  </a>
 </p>
 
 ```diff
