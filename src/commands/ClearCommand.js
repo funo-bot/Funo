@@ -9,7 +9,9 @@ module.exports.run = async (bot, message, args) => {
     );
   }
 
-  const fetched = await message.channel.fetchMessages({ limit: args[0] });
+  const fetched = await message.channel.fetchMessages({
+    limit: args[0]
+  });
 
   message.channel.send(`Deleting ${fetched.size} messages...`).then((msg) => msg.delete(3000));
   await message.channel.bulkDelete(fetched).catch((error) => message.channel.send(`Error: ${error}`));
@@ -19,6 +21,10 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
   name: "clear",
-    category: "moderation",
-  description: "Delete X ammount of message in a Discord server."
+  category: "moderation",
+  description: "Delete X ammount of message in a Discord server.",
+  aliases: [
+    "prune",
+    "delete"
+  ]
 };

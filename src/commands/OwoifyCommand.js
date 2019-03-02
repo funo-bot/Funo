@@ -12,7 +12,9 @@ module.exports.run = async (funo, message, args) => {
     );
   }
 
-  await neko.sfw.OwOify({ text: input }).then((messageBody) => {
+  await neko.sfw.OwOify({
+    text: input
+  }).then((messageBody) => {
     message.channel.send(messageBody.owo);
   });
 };
@@ -20,6 +22,9 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Owoify",
   name: "owoify",
-    category: "fun",
-  description: "OwOify your message."
+  category: "fun",
+  description: "OwOify your message.",
+  aliases: [
+    "owo"
+  ]
 };

@@ -22,6 +22,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Prefix",
   name: "prefix",
-    category: "util",
+  category: "util",
   description: "Change Funo's prefix for the Discord server."
 };

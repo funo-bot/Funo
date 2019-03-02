@@ -36,7 +36,7 @@ module.exports.run = async (funo, message) => {
 module.exports.help = {
   command: "Update",
   name: "update",
-    category: "util",
-    private: true,
+  category: "util",
+  private: true,
   description: "Update Funo to the latest version."
 };

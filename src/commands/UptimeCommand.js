@@ -14,6 +14,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   command: "Uptime",
   name: "uptime",
-    category: "util",
+  category: "util",
   description: "Get how long Funo has been online for."
 };

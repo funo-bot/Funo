@@ -36,5 +36,8 @@ module.exports.help = {
   command: "Help",
   name: "help",
   category: "util",
-  description: "Get a list of commands"
+  description: "Get a list of commands",
+  aliases: [
+    "h"
+  ]
 };

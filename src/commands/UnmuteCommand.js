@@ -28,13 +28,12 @@ module.exports.run = async (funo, message, args) => {
 
   await toUnmute.removeRole(role).then(() => message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
-    .setDescription(toUnmute + " has been unmuted."))
-  );
+    .setDescription(toUnmute + " has been unmuted.")));
 };
 
 module.exports.help = {
   command: "Unmute",
   name: "unmute",
-    category: "moderation",
+  category: "moderation",
   description: "Unmute a user in your server"
 };

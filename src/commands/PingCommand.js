@@ -6,12 +6,14 @@ module.exports.run = async (funo, message) => {
     .setColor("RED")
     .setDescription(`🏓 Pong! ** ${Math.round(m.createdTimestamp - message.createdTimestamp)} **ms.`);
 
-  m.edit({ embed });
+  m.edit({
+    embed
+  });
 };
 
 module.exports.help = {
   command: "Ping",
   name: "ping",
-    category: "util",
+  category: "util",
   description: "Pong!"
-};  
+};

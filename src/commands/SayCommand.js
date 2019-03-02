@@ -21,6 +21,10 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Say",
   name: "say",
-    category: "util",
-  description: "Make Funo say something."
+  category: "util",
+  description: "Make Funo say something.",
+  aliases: [
+    "i",
+    "repeat"
+  ]
 };

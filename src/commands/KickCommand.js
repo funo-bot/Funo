@@ -37,8 +37,7 @@ module.exports.run = async (funo, message, args) => {
     .setTitle("You have been kicked from **" + message.guild.name + "**")
     .setColor("RED")
     .addField("By:", message.author.username)
-    .addField("Reason:", "```" + reason + "```")).then(() => toKick.kick()
-  );
+    .addField("Reason:", "```" + reason + "```")).then(() => toKick.kick());
 
   message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
@@ -50,6 +49,6 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Kick",
   name: "kick",
-    category: "moderation",
+  category: "moderation",
   description: "Kick a user from your server"
 };

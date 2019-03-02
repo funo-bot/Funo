@@ -17,6 +17,10 @@ module.exports.run = async (funo, message) => {
 module.exports.help = {
   command: "Random Cat",
   name: "cat",
-    category: "fun",
-  description: "Get a lovely picture of a cat"
+  category: "fun",
+  description: "Get a lovely picture of a cat",
+  aliases: [
+    "kitten",
+    "cats"
+  ]
 };

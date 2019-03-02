@@ -60,12 +60,14 @@ module.exports.run = async (bot, message, args) => {
 
   await toMute.addRole(role).then(() => message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
-    .setDescription(toMute + " has been muted."))
-  );
+    .setDescription(toMute + " has been muted.")));
 };
 
 module.exports.help = {
   name: "mute",
-    category: "moderation",
-  description: "Mute a user in your Discord server"
+  category: "moderation",
+  description: "Mute a user in your Discord server",
+  aliases: [
+    "silence"
+  ]
 };
