@@ -1,4 +1,6 @@
-const { version: discordVersion } = require("discord.js");
+const {
+  version: discordVersion
+} = require("discord.js");
 const Discord = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
@@ -23,6 +25,9 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Info",
   name: "info",
-    category: "util",
-  description: "Get information about Funo."
+  category: "util",
+  description: "Get information about Funo.",
+  aliases: [
+    "information"
+  ]
 };

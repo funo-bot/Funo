@@ -5,7 +5,7 @@ let funo;
 
 module.exports = (message) => {
   funo = message.client;
-    funo.addToStat(funo, message.guild)
+  funo.addToStat(funo, message.guild)
   if (!message.guild || message.author.bot) {
     return;
   }
@@ -27,7 +27,7 @@ module.exports = (message) => {
     return;
   }
 
-  let cmd = funo.commands.get(command.slice(guildConf.prefix.length));
+  let cmd = funo.commands.get(command.slice(guildConf.prefix.length)) || funo.commands.get(funo.aliases.get(command.slice(guildConf.prefix.length)));
 
   if (cmd) {
     cmd.run(funo, message, args).catch((err) => {

@@ -37,8 +37,7 @@ module.exports.run = async (funo, message, args) => {
     .setTitle(`You have been banned from **${message.guild.name}**`)
     .setColor("RED")
     .addField("By:", message.author.username)
-    .addField("Reason:", "```" + reason + "```")).then(() => toBan.ban()
-  );
+    .addField("Reason:", "```" + reason + "```")).then(() => toBan.ban());
 
   message.channel.send(new Discord.RichEmbed()
     .setColor("GREEN")
@@ -50,6 +49,9 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Ban",
   name: "ban",
-    category: "moderation",
-  description: "Ban a user from your server"
+  category: "moderation",
+  description: "Ban a user from your server",
+  aliases: [
+    "banuser"
+  ]
 };

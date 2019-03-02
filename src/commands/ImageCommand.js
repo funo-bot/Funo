@@ -13,14 +13,17 @@ module.exports.run = async (funo, msg, args) => {
 
   var jimpGenerator = require("../util/jimpGenerator.js")
   if (args[0] == "undo") {
-      msg.guild.emojis.array().forEach(async(emoji)=> { console.log(emoji.name + " : " + emoji.id) })
+    msg.guild.emojis.array().forEach(async (emoji) => {
+      console.log(emoji.name + " : " + emoji.id)
+    })
     try {
       funo.imageHistory[msg.channel.id].pop()
       funo.imageCache[msg.channel.id] = funo.imageHistory[msg.channel.id][funo.imageHistory[msg.channel.id].length - 1] || "http://bcpiac.com/wp-content/uploads/2018/04/no_photo_provided.png";
       await msg.channel.send({
         files: [funo.imageHistory[msg.channel.id][funo.imageHistory[msg.channel.id].length - 1] || "http://bcpiac.com/wp-content/uploads/2018/04/no_photo_provided.png"]
       })
-    } catch (err) {S
+    } catch (err) {
+      S
       msg.channel.send({
         files: ["http://bcpiac.com/wp-content/uploads/2018/04/no_photo_provided.png"]
       });
@@ -117,6 +120,9 @@ module.exports.run = async (funo, msg, args) => {
 module.exports.help = {
   command: "i",
   name: "i",
-    category: "image",
-  description: "edit an image"
+  category: "image",
+  description: "edit an image",
+  aliases: [
+    "image"
+  ]
 };

@@ -25,13 +25,15 @@ module.exports.run = async (funo, message, args) => {
   }).catch((rejection) => message.channel.send(new Discord.RichEmbed()
     .setColor("#9F3139")
     .setDescription("Could not find any username matching " + args[1] + " on platform " + args[0])
-    )
-  );
+  ));
 };
 
 module.exports.help = {
   command: "Apex",
   name: "apex",
-    category: "fun",
-  description: "Get a players Apex Legends stats."
+  category: "fun",
+  description: "Get a players Apex Legends stats.",
+  aliases: [
+    "apexstats"
+  ]
 };

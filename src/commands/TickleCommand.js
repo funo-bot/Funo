@@ -25,6 +25,9 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "Tickle",
   name: "tickle",
-    category: "fun",
-  description: "Tickle a user in a Discord server."
+  category: "fun",
+  description: "Tickle a user in a Discord server.",
+  aliases: [
+    "tingle"
+  ]
 };

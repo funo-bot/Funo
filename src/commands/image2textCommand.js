@@ -54,7 +54,9 @@ module.exports.run = async (funo, message, args) => {
               if (progress_calc_1.startsWith(" ")) progress = progress_calc_1.replace(" ", "");
               embed.setDescription(`**Status**: ${object.status}\n**Progress**: ${progress_calc_1.replaceAll("0", "")}%`);
               msg.edit(embed);
-              setTimeout(async () => { tooEarly = false }, 500);
+              setTimeout(async () => {
+                tooEarly = false
+              }, 500);
             }
             break;
         }
@@ -66,6 +68,11 @@ module.exports.run = async (funo, message, args) => {
 module.exports.help = {
   command: "image2text",
   name: "image2text",
-    category: "image",
-  description: "Pull text from an image"
+  category: "image",
+  description: "Pull text from an image",
+  aliases: [
+    "i2t",
+    "img2text",
+    "img2txt"
+  ]
 };

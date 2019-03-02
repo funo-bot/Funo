@@ -23,13 +23,16 @@ module.exports.run = async (funo, message, args) => {
   }).catch((rejection) => message.channel.send(new Discord.RichEmbed()
     .setColor("#1D2439")
     .setDescription("Could not find any definition matching " + args.slice(0).join(" "))
-    )
-  );
+  ));
 };
 
 module.exports.help = {
   command: "Urban",
   name: "urban",
-    category: "util",
-  description: "Search urban dictionary"
+  category: "util",
+  description: "Search urban dictionary",
+  aliases: [
+    "dict",
+    "dictionary"
+  ]
 };
