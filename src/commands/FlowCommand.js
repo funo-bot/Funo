@@ -7,17 +7,17 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     var config = await bot.stats.ensure(message.guild.id, bot.defaultStats)
-    var dates = config.memberArray.slice(-7)
-    var date = config.dateArray.slice(-7)
+    var dates = config.memberArray.splice(-1, 7)
+    var date = config.dateArray.splice(-1, 7)
     var shit = [{
         label: 'Online',
-        data: [dates[-7] || dates[0], dates[-6] || dates[0], dates[-5] || dates[0], dates[-4] || dates[0], dates[-3] || dates[0], dates[-2] || dates[0], dates[-1] || dates[0]],
+        data: [dates[6] || message.guild.members.size, dates[5] || message.guild.members.size ,dates[4] || message.guild.members.size ,dates[3] || message.guild.members.size,dates[2] || message.guild.members.size ,dates[1] || message.guild.members.size ,dates[0] || message.guild.members.size ,],
         // borderColor: [ 'black','black',"black","black" ],
         borderColor: [ "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)", "rgba(209, 50, 241, 1)" ],
         backgroundColor: [ "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)", "rgba(209, 50, 241, 0.3)" ],
         fontSize: [30]
     }]
-        await bot.ImageHandler.preformAction("graphMemberCount", bot , [shit, "line", ["60m Ago", "50m Ago", "40m Ago", "30m Ago", "20m Ago", "10m Ago", "Now"], `${message.guild.name} - ${message.guild.members.size} members`], async (obj) => {
+        await bot.ImageHandler.preformAction("graphMemberCount", bot , [shit, "line", [date[6] || "Unknown", date[5] || "Unknown", date[4] || "Unknown", date[3] || "Unknown", date[2] || "Unknown", date[1] || "Unknown", date[0] || "Unknown"], `${message.guild.name} - ${message.guild.members.size} members`], async (obj) => {
             if (obj.Status) {
                 message.channel.send(new Discord.Attachment(obj.Buffer))
             } else {
