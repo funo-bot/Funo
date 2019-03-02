@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://discordbots.org/bot/332971222897786892" >
-    <img src="https://discordbots.org/api/widget/332971222897786892.svg" alt="Funo" />
+    <img src="https://discordbots.org/api/widget/332971222897786892.svg" alt="Funo"/>
   </a>
 </p>
 
