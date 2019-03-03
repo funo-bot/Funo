@@ -63,7 +63,11 @@ module.exports = class extends EventEmitter {
                 this._playNext()
             })
         } else {
-            this.channel.leave()
+            setTimeout(async () => {
+                try {
+                    if (this.dispatcher==null) this.channel.leave()
+                } catch(err){}
+            },300000)
         }
     }
 

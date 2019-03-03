@@ -30,7 +30,7 @@ funo.stats = new Enmap({
 });
 
 funo.defaultSettings = {
-  prefix: config.prefix || ".",
+  prefix: ".",
   logChannel: "mod-logs"
 };
 
