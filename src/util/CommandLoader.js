@@ -19,10 +19,14 @@ module.exports = (funo) => {
 
     commands.forEach((cmd) => {
       var props = require(`../commands/${cmd}`);
-      funo.commands.set(props.help.name.toLowerCase(), props);
-      props.help.aliases.forEach((alias) =>
-        funo.aliases.set(alias, props.help.name.toLowerCase())
-      );
+      if (props.help.disabled) {
+
+      } else {
+          funo.commands.set(props.help.name.toLowerCase(), props);
+          props.help.aliases.forEach((alias) =>
+              funo.aliases.set(alias, props.help.name.toLowerCase())
+          )
+      }
     });
 
     logger.info("All commands loaded!");

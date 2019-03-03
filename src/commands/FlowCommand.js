@@ -32,5 +32,6 @@ module.exports.help = {
   description: "Generate a graph to show the memberflow",
   aliases: [
     "mflow"
-  ]
+  ],
+    disabled: true
 };
