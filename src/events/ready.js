@@ -9,7 +9,7 @@ module.exports = (funo) => {
 
   funo.user.setPresence({ game: { name: config.prefix + "help for commands", type: 0 } });
 
-  funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
+  funo.guilds.get(config.logServerID).channels.find(c=> c.name == config.logChannelName).send(new Discord.RichEmbed()
     .setColor("GREEN")
     .setDescription(`Logged in with ${funo.guilds.size} servers and ${funo.users.size} users.`)
     .setTimestamp()

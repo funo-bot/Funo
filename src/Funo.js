@@ -10,6 +10,10 @@ const start = Date.now();
 funo.ImageHandler = new ImageHandler(funo)
 
 funo.addToStat = require("./util/addToStat")
+funo.musicTask = require("./util/musicHandler")
+funo.musicTasks = {}
+
+funo.config = config
 
 funo.settings = new Enmap({
   name: "settings",
