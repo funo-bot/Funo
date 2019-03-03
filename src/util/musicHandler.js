@@ -13,16 +13,19 @@ module.exports = class extends EventEmitter {
         this.guild = guild
         this.channel = channel
         this.queue = []
-
         this.init()
     }
 
     Skip() {
-        this.dispatcher.end()
+        if (this.dispatcher !=null) {
+            this.dispatcher.end()
+        }
     }
     Stop() {
         this.queue = [null]
-        this.dispatcher.end()
+        if (this.dispatcher != null) {
+            this.dispatcher.end()
+        }
     }
     set Channel(channel) {
         this.channel = channel
