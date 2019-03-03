@@ -37,7 +37,12 @@ module.exports.run = async (funo, message, args) => {
                 .setThumbnail("https://rhythmcadence.carrd.co/assets/images/image01.gif" ||"https://hotemoji.com/images/dl/i/musical-note-emoji-by-twitter.png")
                 .setImage("https://i.imgur.com/BwPBeG9.gif")
             ).then(async m=>{
-                if (results[0]) await m.react(funo.emojis.get("551607641533841429"))
+                if (!results[0]) await m.edit(new Discord.RichEmbed()
+                    .setDescription("No songs found for " + args.join(" "))
+                    .setColor("#36393F")
+                    .setThumbnail("https://rhythmcadence.carrd.co/assets/images/image01.gif" ||"https://hotemoji.com/images/dl/i/musical-note-emoji-by-twitter.png")
+                    .setImage("https://i.imgur.com/BwPBeG9.gif"))
+                await m.react(funo.emojis.get("551607641533841429"))
                 if (results[1]) await m.react(funo.emojis.get("551607641311281157"))
                 if (results[2]) await m.react(funo.emojis.get("551607641588367363"))
                 if (results[3]) await m.react(funo.emojis.get("551607641655476234"))
@@ -98,7 +103,7 @@ module.exports.run = async (funo, message, args) => {
                     }
                 })
                 await m.edit(new Discord.RichEmbed()
-                    .setDescription("**__React with what song you wish to play__**\n\n" + results.map(r=> `**#${Number(results.indexOf(r)) + 1} [${r.title.replace(/\\[/g, '').replace(/\\]/g, '').substr(0, 43)}...](${r.link})**`).join("\n"))
+                    .setDescription("**__React with what song you wish to play__**\n\n" + results.map(r=> `**#${Number(results.indexOf(r)) + 1} [${r.title.replace(/\[/g, '').replace(/\]/g, '').substr(0, 43)}...](${r.link})**`).join("\n"))
                     .setColor("#36393F")
                     .setThumbnail("https://rhythmcadence.carrd.co/assets/images/image01.gif" ||"https://hotemoji.com/images/dl/i/musical-note-emoji-by-twitter.png")
                     .setImage("https://i.imgur.com/BwPBeG9.gif")
