@@ -27,6 +27,7 @@ module.exports.help = {
     category: "music",
     description: "Stops the current song and clears the queue",
     aliases: [
-        "stop"
+        "stop",
+        "no"
     ]
 };
