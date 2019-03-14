@@ -20,3 +20,4 @@ pipeline:
     docker_image:
       from_secret: docker_image
     confirm: true
+    timeout: 180
