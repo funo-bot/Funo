@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "src/Funo.js",
   "scripts": {
-    "start": "npm i && node src/Funo.js",
-    "restart": "pm2 restart Funo",
-    "stop": "pm2 stop Funo"
+    "start": "node src/Funo.js"
   },
   "keywords": [],
   "author": "",

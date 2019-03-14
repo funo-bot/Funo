@@ -1,0 +1,22 @@
+pipeline:
+  default:
+    image: plugins/docker
+    repo:
+      from_secret: docker_repo
+    registry:
+      from_secret: docker_registry
+    tags: [ "latest", "${DRONE_COMMIT_SHA:0:7}" ]
+    secrets: [ docker_username, docker_password ]
+  deploy:
+    image: peloton/drone-rancher
+    url:
+      from_secret: rancher_address
+    access_key:
+      from_secret: rancher_access_key
+    secret_key:
+      from_secret: rancher_access_secret
+    service:
+      from_secret: rancher_service
+    docker_image:
+      from_secret: docker_image
+    confirm: true

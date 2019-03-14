@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
-const config = require("../config.json");
+const config = require(process.env.CONFIG_LOCATION || "../config.json");
 const logger = require("./util/Logger");
 const ImageHandler = require("./ImageHandler/ImageHandler")
 
