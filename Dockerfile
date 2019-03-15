@@ -4,7 +4,7 @@ WORKDIR /funo
 
 COPY . /funo
 
-EXPOSE 5050
+EXPOSE 5000
 
 RUN npm i
 
