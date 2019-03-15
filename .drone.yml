@@ -1,14 +1,18 @@
-pipeline:
-  default:
-    image: plugins/docker
+kind: pipeline
+name: default
+
+steps:
+- name: publish
+  image: plugins/gcr
+  settings:
     repo:
       from_secret: docker_repo
-    registry:
-      from_secret: docker_registry
     tags: [ "latest", "${DRONE_COMMIT_SHA:0:7}" ]
-    secrets: [ docker_username, docker_password ]
-  deploy:
-    image: peloton/drone-rancher
+    json_key:
+      from_secret: google_credentials
+- name: deploy
+  image: peloton/drone-rancher
+  settings:
     url:
       from_secret: rancher_address
     access_key:
@@ -20,4 +24,4 @@ pipeline:
     docker_image:
       from_secret: docker_image
     confirm: true
-    timeout: 180
+    timeout: 60
