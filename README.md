@@ -4,6 +4,7 @@
 <h4 align="center">A multipurpose bot for your Discord server</h4>
 
 [![HitCount](http://hits.dwyl.io/funo-bot/Funo.svg)](http://hits.dwyl.io/funo-bot/Funo)
+[![Build Status](https://ci-github.funo.io/api/badges/funo-bot/Funo/status.svg)](https://ci-github.funo.io/funo-bot/Funo)
 
 <p align="center">
   <a href="https://discordbots.org/bot/332971222897786892" >
