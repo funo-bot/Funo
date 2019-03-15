@@ -26,9 +26,10 @@ module.exports = class extends EventEmitter {
     this.queue = [null]
     if (this.dispatcher != null) {
       this.dispatcher.end()
-      this.channel.leave()
     }
+    this.channel.leave()
   }
+  
   set Channel(channel) {
     this.channel = channel
   }
