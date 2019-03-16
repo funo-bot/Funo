@@ -1,3 +1,4 @@
+const config = require("../../config.json");
 const Discord = require("discord.js");
 
 module.exports.run = async (funo, message, args) => {
@@ -10,6 +11,13 @@ module.exports.run = async (funo, message, args) => {
   }
 
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
+
+  if(!args.length) {
+    return message.channel.send(new Discord.RichEmbed()
+      .setDescription(`This server's current prefix is **\`${guildConf.prefix || config.prefix}\`**`)
+      .setColor("BLUE")
+    );
+  }
 
   funo.settings.set(message.guild.id, args[0], "prefix");
 

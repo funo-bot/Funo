@@ -9,7 +9,7 @@ module.exports = (guild) => {
   funo.addToStat(funo, guild)
   logger.info(`Added to new guild ${guild.name}, with ${guild.members.size} members!`);
 
-  funo.settings.set(guild.id, ".", "prefix");
+  funo.settings.set(guild.id, config.prefix, "prefix");
   
   funo.guilds.get(config.logServerID).channels.find("name", config.logChannelName).send(new Discord.RichEmbed()
     .setThumbnail(guild.iconURL)
