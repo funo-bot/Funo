@@ -20,3 +20,4 @@
 ## Social Networks
 - [Join the Discord!](https://discord.gg/UwszqWM)
 - [Funo Network Twitter](https://twitter.com/FunoNetwork)
+- [Support the development of Funo](https://www.patreon.com/user?u=7399474)
