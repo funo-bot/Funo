@@ -9,7 +9,6 @@ const start = Date.now();
 
 funo.ImageHandler = new ImageHandler(funo)
 
-funo.addToStat = require("./util/addToStat")
 funo.musicTask = require("./util/musicHandler")
 funo.musicTasks = {}
 
@@ -32,11 +31,6 @@ funo.stats = new Enmap({
 funo.defaultSettings = {
   prefix: ".",
   logChannel: "mod-logs"
-};
-
-funo.defaultStats = {
-    memberArray: [],
-    dateArray: []
 };
 
 require("./util/EventLoader")(funo);

@@ -6,7 +6,7 @@ let funo;
 
 module.exports = (guild) => {
   funo = guild.client;
-  funo.addToStat(funo, guild)
+  
   logger.info(`Added to new guild ${guild.name}, with ${guild.members.size} members!`);
 
   funo.settings.set(guild.id, config.prefix, "prefix");

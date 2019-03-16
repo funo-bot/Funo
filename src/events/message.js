@@ -5,7 +5,7 @@ let funo;
 
 module.exports = (message) => {
   funo = message.client;
-  funo.addToStat(funo, message.guild)
+  
   if (!message.guild || message.author.bot) {
     return;
   }
@@ -18,13 +18,13 @@ module.exports = (message) => {
   const prefix = guildConf.prefix || config.prefix
 
   let cmdStr = '';
-  if(command === `<@${funo.user.id}>` || command === `<@!${funo.user.id}>`) {
-    if(messageArray.length < 2) return
+  if (command === `<@${funo.user.id}>` || command === `<@!${funo.user.id}>`) {
+    if (messageArray.length < 2) return
 
     cmdStr = args.shift().toLowerCase()
-  } else if(message.content.indexOf(prefix) === 0) {
+  } else if (message.content.indexOf(prefix) === 0) {
     cmdStr = command.slice(prefix.length)
-  } else if(message.content === config.prefix + "prefix") {
+  } else if (message.content === config.prefix + "prefix") {
     cmdStr = 'prefix'
   } else return;
 
@@ -32,7 +32,7 @@ module.exports = (message) => {
 
   if (cmd) {
     cmd.run(funo, message, args).catch((err) => {
-      funo.guilds.get(config.logServerID).channels.find(c=> c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: ${message.guild.name}\nCommand ran: ${cmd.name}\n\`\`\`${err.stack}\`\`\``));
+      funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: ${message.guild.name}\nCommand ran: ${cmd.name}\n\`\`\`${err.stack}\`\`\``));
     });
   }
 };
