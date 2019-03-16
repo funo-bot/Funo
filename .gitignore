@@ -3,7 +3,7 @@ src/data/
 
 config.json
 
-pcackage-lock.json
+package-lock.json
 .idea/Funo.iml
 .idea/misc.xml
 .idea/modules.xml
