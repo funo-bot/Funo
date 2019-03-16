@@ -7,12 +7,7 @@ module.exports.run = async (funo, message, args) => {
     return;
   }
 
-  if (args[0] === "funo.token") {
-    return;
-  }
-
   function clean(text) {
-    if (text.includes(JSON.stringify(config)) || text.includes(config.token)) return;
     if (typeof (text) === "string") {
       return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
     } else {
@@ -33,7 +28,6 @@ module.exports.run = async (funo, message, args) => {
       .setColor("0x55FF00")
       .addField("📥 **Input:**", `\`\`\`xl\n${code}\n\`\`\``)
       .addField("📤 **Output:**", `\`\`\`xl\n${clean(evaled)}\n\`\`\``)
-      .setFooter("© Funo Eval", funo.user.avatarURL)
     );
   } catch (err) {
     message.channel.send(new Discord.RichEmbed()
@@ -41,7 +35,6 @@ module.exports.run = async (funo, message, args) => {
       .setColor("0xFF0000")
       .addField("📥 **Input:**", `\`\`\`xl\n${args.join(" ")}\n\`\`\``)
       .addField("📤 **Output:**", `\`\`\`xl\n${clean(err)}\n\`\`\``)
-      .setFooter("© Funo | Eval", funo.user.avatarURL)
     );
   }
 };
@@ -52,8 +45,5 @@ module.exports.help = {
   category: "util",
   private: true,
   description: "Secrets",
-  aliases: [
-    "owner",
-    "secret"
-  ]
+  aliases: []
 };

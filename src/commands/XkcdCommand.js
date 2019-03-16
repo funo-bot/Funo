@@ -10,7 +10,7 @@ function getComic(message, num = 0) {
   snekfetch.get(`https://xkcd.com/${num === 0 ? '' : `${num}/`}info.0.json`).then(r => {
     const data = r.body;
 
-    if(num === 0) currentComic = data.num
+    if (num === 0) currentComic = data.num
 
     const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
     message.channel.send(new Discord.RichEmbed()
@@ -24,11 +24,11 @@ function getComic(message, num = 0) {
 module.exports.run = async (funo, message, args) => {
   await promise;
 
-  if(args.length) {
-    if(typeof args[0] === 'string' && args[0].toLowerCase() === 'latest') return getComic(message)
+  if (args.length) {
+    if (typeof args[0] === 'string' && args[0].toLowerCase() === 'latest') return getComic(message)
     else {
       const num = parseInt(args[0])
-      if(num < 1 || num > currentComic || isNaN(num)) return
+      if (num < 1 || num > currentComic || isNaN(num)) return
 
       return getComic(message, num)
     }
