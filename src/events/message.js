@@ -31,7 +31,7 @@ module.exports = (message) => {
 
   if (cmd) {
     cmd.run(funo, message, args).catch((err) => {
-      funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: ${message.guild.name}\nCommand ran: ${cmd.name}\n\`\`\`${err.stack}\`\`\``));
+      funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: \`${message.guild.name}\`\nCommand ran: \`${cmd.help.name}\`\n\`\`\`${err.stack}\`\`\``));
     });
   }
 };
