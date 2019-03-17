@@ -2,6 +2,13 @@ const Discord = require("discord.js");
 const urban = require("urban.js");
 
 module.exports.run = async (funo, message, args) => {
+  
+   if (!message.channel.nsfw) {
+    return message.channel.send(new Discord.RichEmbed()
+      .setColor("RED")
+      .setDescription("This command can only be used in NSFW channels.")
+    );
+  }
 
   if (!args[0]) {
     return message.channel.send(new Discord.RichEmbed()
