@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
       .then(msg => msg.delete(7000));
   }
 
-  if (isNaN(args[0]) || args[0] >= 100 || args[0] <= 0) {
+  if (isNaN(args[0]) || args[0] > 100 || args[0] <= 0) {
     return message.channel
       .send(
         new Discord.RichEmbed()
@@ -45,11 +45,11 @@ module.exports.run = async (bot, message, args) => {
   message.channel
     .send(
       `${
-        mentioned
-          ? fetched.filter(msg => msg.author.id === mentioned.id).size
-          : fetchedSize
+      mentioned
+        ? fetched.filter(msg => msg.author.id === mentioned.id).size
+        : fetchedSize
       } out of ${fetchedSize} message${
-        fetchedSize !== 1 ? "s" : ""
+      fetchedSize !== 1 ? "s" : ""
       } matched the given criteria!`
     )
     .then(msg => msg.delete(7000));
