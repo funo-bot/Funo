@@ -9,7 +9,7 @@ module.exports.run = async (funo, message, args) => {
     }).then(async res => {
       await message.channel.send(new Discord.RichEmbed()
         .setColor("RED")
-        .setDescription(`🏓 Pong! **${res.host}** replied in **${Math.round(parseInt(res.avg))}**ms.`));
+        .setDescription(`🏓 Pong! **${res.host}** replied in **${Math.round(res.time * 100) / 100}**ms.`));
     });
   } else {
     const m = await message.channel.send("🏓 Pong! ");
