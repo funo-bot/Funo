@@ -2,12 +2,9 @@ const Discord = require("discord.js");
 const Enmap = require("enmap");
 const config = require(process.env.CONFIG_LOCATION || "../config.json");
 const logger = require("./util/Logger");
-const ImageHandler = require("./ImageHandler/ImageHandler")
 
 const funo = new Discord.Client({ disableEveryone: true });
 const start = Date.now();
-
-funo.ImageHandler = new ImageHandler(funo)
 
 funo.musicTask = require("./util/musicHandler")
 funo.musicTasks = {}

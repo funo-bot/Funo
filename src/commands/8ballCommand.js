@@ -1,4 +1,4 @@
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 const Discord = require("discord.js");
 
 module.exports.run = async (funo, message, args) => {
@@ -10,7 +10,8 @@ module.exports.run = async (funo, message, args) => {
     );
   }
 
-  const { body } = await snekfetch.get('https://8ball.delegator.com/magic/JSON/' + args.join(" "))
+  const body = await fetch('https://8ball.delegator.com/magic/JSON/' + args.join(" "))
+    .then(res => res.json())
 
   const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
   return message.channel.send(new Discord.RichEmbed()

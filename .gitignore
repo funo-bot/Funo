@@ -16,3 +16,6 @@ package-lock.json
 eng.traineddata
 .idea/workspace.xml___jb_tmp___
 charttest.js
+
+yarn-error.log
+yarn.lock

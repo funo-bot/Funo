@@ -1,8 +1,9 @@
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 const Discord = require("discord.js");
 
 module.exports.run = async (funo, message, args) => {
-  const { body } = await snekfetch.get('https://official-joke-api.appspot.com/random_joke')
+  const body = await fetch('https://official-joke-api.appspot.com/random_joke')
+    .then(res => res.json())
 
   return message.channel.send(new Discord.RichEmbed()
     .addField(body.setup, body.punchline)

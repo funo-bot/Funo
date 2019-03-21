@@ -1,14 +1,24 @@
 const Discord = require("discord.js");
+const ping = require('ping');
 
-module.exports.run = async (funo, message) => {
-  const m = await message.channel.send("🏓 Pong! ");
-  const embed = new Discord.RichEmbed()
-    .setColor("RED")
-    .setDescription(`🏓 Pong! ** ${Math.round(m.createdTimestamp - message.createdTimestamp)} **ms.`);
+module.exports.run = async (funo, message, args) => {
 
-  m.edit({
-    embed
-  });
+  if(args.length) {
+    ping.promise.probe(args[0], {
+      timeout: 10,
+    }).then(async res => {
+      await message.channel.send(new Discord.RichEmbed()
+        .setColor("RED")
+        .setDescription(`🏓 Pong! **${res.host}** replied in **${Math.round(parseInt(res.avg))}**ms.`));
+    });
+  } else {
+    const m = await message.channel.send("🏓 Pong! ");
+    const embed = new Discord.RichEmbed()
+      .setColor("RED")
+      .setDescription(`🏓 Pong! ** ${Math.round(m.createdTimestamp - message.createdTimestamp)} **ms.`);
+
+    m.edit({ embed });
+  }
 };
 
 module.exports.help = {

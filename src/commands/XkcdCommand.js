@@ -1,24 +1,23 @@
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 const Discord = require("discord.js");
 
 let currentComic = 0
-const promise = snekfetch.get("https://xkcd.com/info.0.json").then(r => {
-  currentComic = r.body.num
+const promise = fetch('https://xkcd.com/info.0.json').then(async res => {
+  currentComic = (await res.json()).num
 })
 
-function getComic(message, num = 0) {
-  snekfetch.get(`https://xkcd.com/${num === 0 ? '' : `${num}/`}info.0.json`).then(r => {
-    const data = r.body;
+async function getComic(message, num = 0) {
+  const body = await fetch(`https://xkcd.com/${num === 0 ? '' : `${num}/`}info.0.json`)
+    .then(res => res.json())
 
-    if (num === 0) currentComic = data.num
+  if (num === 0) currentComic = body.num
 
-    const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    message.channel.send(new Discord.RichEmbed()
-      .setTitle(`${data.title} - ${data.num}`)
-      .setColor(color)
-      .setImage(data.img)
-    );
-  })
+  const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  message.channel.send(new Discord.RichEmbed()
+    .setTitle(`${body.title} - ${body.num}`)
+    .setColor(color)
+    .setImage(body.img)
+  );
 }
 
 module.exports.run = async (funo, message, args) => {

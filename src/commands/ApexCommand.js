@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
 
 module.exports.run = async (funo, message, args) => {
 
@@ -12,20 +12,24 @@ module.exports.run = async (funo, message, args) => {
     );
   }
 
-  snekfetch.get(`https://apextab.com/api/search.php?platform=${args[0]}&search=${args[1]}`).then((r) => {
-    let body = r.body.results[0];
-    message.channel.send(new Discord.RichEmbed()
-      .setTitle(`Stats for ${body.name}`)
-      .setThumbnail(body.avatar)
-      .addField("Level", body.level)
-      .addField("Kills", body.kills)
-      .addField("Favourite legend", body.legend)
-      .setColor("#9F3139")
-    );
-  }).catch((rejection) => message.channel.send(new Discord.RichEmbed()
+  const body = await fetch(`https://apextab.com/api/search.php?platform=${args[0]}&search=${args[1]}`)
+    .then(res => res.json())
+
+  if(!body.results || !body.results.length) {
+    return message.channel.send(new Discord.RichEmbed()
+        .setColor("#9F3139")
+        .setDescription("Could not find any username matching " + args[1] + " on platform " + args[0]))
+  }
+
+  const player = body.results[0]
+  message.channel.send(new Discord.RichEmbed()
+    .setTitle(`Stats for ${player.name}`)
+    .setThumbnail(player.avatar)
+    .addField("Level", player.level)
+    .addField("Kills", player.kills)
+    .addField("Favourite legend", player.legend)
     .setColor("#9F3139")
-    .setDescription("Could not find any username matching " + args[1] + " on platform " + args[0])
-  ));
+  );
 };
 
 module.exports.help = {
