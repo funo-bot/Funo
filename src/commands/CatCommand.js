@@ -5,6 +5,11 @@ module.exports.run = async (funo, message) => {
 
   const body = await fetch('http://aws.random.cat/meow')
     .then(res => res.json())
+    
+    if (!body) return message.channel.send(new Discord.RichEmbed()
+    .setDescription("Timed out while getting a response.")
+    .setColor("RED")
+  );
 
   const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
   message.channel.send(new Discord.RichEmbed()
