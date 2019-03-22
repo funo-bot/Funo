@@ -15,9 +15,7 @@ module.exports.run = async (funo, message) => {
     .setDescription("Restarting...")
     .setTimestamp();
 
-  await message.channel.send({
-    embed
-  });
+  await message.channel.send({embed});
 
   process.exit(0);
 };
