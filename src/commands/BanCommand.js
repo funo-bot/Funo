@@ -24,7 +24,7 @@ module.exports.run = async (funo, message, args) => {
     );
   }
 
-  let reason = args.slice(1).join(" ");
+  let reason = args.slice(1).join(" ") || "No reason specifed."
 
   if (toBan.highestRole.position > message.member.highestRole.position) {
     return message.channel.send(new Discord.RichEmbed()
