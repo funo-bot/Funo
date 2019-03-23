@@ -3,13 +3,25 @@ const Discord = require("discord.js");
 
 module.exports.run = async (funo, message) => {
 
-  const body = await fetch('http://aws.random.cat/meow')
+  function timeout(ms, promise) {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        reject(new Error("timeout"))
+      }, ms)
+      promise.then(resolve, reject)
+    })
+  }
+
+  const body = await timeout(3000, fetch('http://aws.random.cat/meow'))
     .then(res => res.json())
-    
-    if (!body) return message.channel.send(new Discord.RichEmbed()
-    .setDescription("Timed out while getting a response.")
-    .setColor("RED")
-  );
+    .catch(function (error) {
+      return message.channel.send(new Discord.RichEmbed()
+        .setDescription("Timed out while getting a response from the remote server. " + error)
+        .setColor("RED")
+      );
+    })
+
+    console.log(body)
 
   const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
   message.channel.send(new Discord.RichEmbed()

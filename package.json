@@ -22,6 +22,7 @@
     "node-fetch": "^2.3.0",
     "opusscript": "0.0.6",
     "ping": "git+https://github.com/danielzzz/node-ping#b4b064e",
+    "pornhub-api": "0.0.1",
     "urban.js": "^2.4.3",
     "youtube-search": "^1.1.4",
     "ytdl-core": "^0.29.1"
