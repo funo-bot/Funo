@@ -27,8 +27,6 @@ module.exports.run = async (funo, message, args) => {
         .setDescription(JSON.stringify(reply.is_album) === "true" ? reply.images[0].description || "No description specifed." : reply.description || "No description specifed.")
         .setImage(JSON.stringify(reply.is_album) === "true" ? reply.images[0].link : reply.link)
       );
-
-      console.log(reply)
     })
 }
 
