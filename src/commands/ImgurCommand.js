@@ -18,6 +18,7 @@ module.exports.run = async (funo, message, args) => {
           .setDescription("Nothing was found with your search.")
         );
       }
+      
       const reply = json['data'][Math.floor(Math.random() * json['data'].length)]
 
       message.channel.send(new Discord.RichEmbed()

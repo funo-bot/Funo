@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const logger = require("../util/Logger");
 const config = require("../../config.json");
 const DBL = require("dblapi.js");
-
+const fetch = require("node-fetch")
 module.exports = (funo) => {
 
   logger.info(`Logged in with ${funo.guilds.size} servers and ${funo.users.size} users.`);
@@ -19,5 +19,13 @@ module.exports = (funo) => {
 
   setInterval(() => {
     dbl.postStats(funo.guilds.size);
+    fetch(`https://botsfordiscord.com/api/bot/${funo.user.id}`, {
+      headers: {
+        'Authorization': config.BOTS_ON_DISCORD_TOKEN,
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({server_count: funo.guilds.size})
+    })
   }, 300000);
 };
