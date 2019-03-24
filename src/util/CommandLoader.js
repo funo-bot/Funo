@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const logger = require("./Logger");
 
-module.exports = (funo) => {
+module.exports.load = funo => {
   funo.commands = new Discord.Collection();
   funo.aliases = new Discord.Collection();
 
@@ -17,7 +17,7 @@ module.exports = (funo) => {
       return;
     }
 
-    commands.forEach((cmd) => {
+    commands.forEach(async cmd => {
       var props = require(`../commands/${cmd}`);
       if (props.help.disabled) {
 
@@ -32,3 +32,9 @@ module.exports = (funo) => {
     logger.info("All commands loaded!");
   });
 };
+
+module.exports.initCmds = async funo => {
+  for(const [ name, cmd ] of funo.commands) {
+    if(typeof cmd.init === 'function') await cmd.init(funo);
+  }
+}

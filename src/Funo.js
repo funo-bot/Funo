@@ -31,10 +31,13 @@ funo.defaultSettings = {
 };
 
 require("./util/EventLoader")(funo);
-require("./util/CommandLoader")(funo);
+const loader = require("./util/CommandLoader");
+loader.load(funo);
 require("./util/DblHelper")(funo);
 
 funo.login(config.token).then(() => {
   const finish = Date.now() - start;
   logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
+
+  loader.initCmds(funo);
 });
