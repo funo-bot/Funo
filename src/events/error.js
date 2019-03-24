@@ -1,5 +1,6 @@
 const config = require("../../config.json");
+const logger = require("../util/Logger");
 
-module.exports = (funo) => {
-  funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send("`An unknown error has occured.`");
+module.exports = (error) => {
+  logger.error("An unknown error has occured. " + error.stack)
 };
