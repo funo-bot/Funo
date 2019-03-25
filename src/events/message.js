@@ -7,7 +7,7 @@ module.exports = (message) => {
   
   if (!message.guild || message.author.bot) {
     return;
-  }
+  } 
 
   let messageArray = message.content.split(/\s+/g);
   let command = messageArray[0].toLowerCase();
@@ -30,8 +30,9 @@ module.exports = (message) => {
   const cmd = funo.commands.get(cmdStr) || funo.commands.get(funo.aliases.get(cmdStr));
 
   if (cmd) {
-    cmd.run(funo, message, args).catch((err) => {
-      funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: \`${message.guild.name}\`\nCommand ran: \`${cmd.help.name}\`\n\`\`\`${err.stack}\`\`\``));
-    });
+     cmd.run(funo, message, args)
+    //.catch((err) => {
+    //   funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: \`${message.guild.name}\`\nCommand ran: \`${cmd.help.name}\`\n\`\`\`${err.stack}\`\`\``));
+    // });
   }
 };

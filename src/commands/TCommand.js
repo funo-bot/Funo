@@ -1,91 +1,86 @@
-const Discord = require("discord.js");
-const { PlayerManager } = require("discord.js-lavalink");
 const fetch = require("node-fetch");
+const config = require('../../config.json')
 const { URLSearchParams } = require("url");
 
-const guildPlayers = new Map();
-const guildQueues = new Map();
-
-const nodes = [
-  { host: "localhost", port: 2333, password: "test123" }
-];
-
-let manager;
-
-module.exports.init = async funo => {
-  manager = new PlayerManager(funo, nodes, {
-    user: funo.user.id,
-    shards: 0
-  });
-}
-
 module.exports.run = async (funo, message, args) => {
-  if (!message.member.voiceChannel) {
-    return message.channel.send(new Discord.RichEmbed().setDescription("**You are not in a voice channel**"))
-  }
+  const queue = new Map();
 
-  const guildId = message.guild.id;
+  const voiceChannel = message.member.voiceChannel;
+
+  const player = await funo.manager.join({
+    guild: message.guild.id,
+    channel: message.member.voiceChannel.id,
+    host: config.nodes[0].host
+  });
+
+  if (!voiceChannel) {
+    return message.channel.send(new Discord.RichEmbed().setDescription("**You are not in a voice channel**"))
+  };
 
   const track = args.join(" ");
-  const [song] = await getSongs(`ytsearch: ${track}`);
+  const [search] = await getSongs(`ytsearch: ${track}`);
+  const serverQueue = queue.get(message.guild.id)
 
-  if(!guildQueues.has(guildId)) guildQueues.set(guildId, [])
+  player.once("end", async () => {
+      serverQueue.songs.shift();
+      player.play(search.track)
+    })
 
-  const queue = guildQueues.get(guildId);
+  return handleVideo(search, message, voiceChannel);
 
-  let player;
-  if(!guildPlayers.has(guildId)) {
-    player = await manager.join({
-      guild: guildId,
-      channel: message.member.voiceChannel.id,
-      host: manager.nodes.first().host
-    }, { selfdeaf: true });
+  async function handleVideo(search, message, voiceChannel) {
+    const serverQueue = queue.get(message.guild.id);
 
-    player.once("end", async data => {
-      queue.shift();
+    if (!serverQueue) {
+      const queueConstruct = {
+        textChannel: message.channel,
+        voiceChannel: voiceChannel,
+        songs: [],
+        playing: true
+      };
 
-      const song = queue[0];
-      player.play(song.track);
+      queue.set(message.guild.id, queueConstruct);
+      queueConstruct.songs.push(search.track);
 
-      return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
-    });
-
-    guildPlayers.set(guildId, player);
-  } else {
-    player = guildPlayers.get(guildId);
+      try {
+        play(message.guild, queueConstruct.songs[0]);
+      } catch (err) {
+        console.error(`I could not join the voice channel: ${error}`);
+        queue.delete(message.guild.id);
+      }
+    } else {
+      console.log(serverQueue.songs);
+      serverQueue.songs.push(search.track);
+      return message.channel.send(`✅ **${search.info.title}** has been added to the queue!`);
+    }
   }
 
-  if(queue.length) {
-    // Songs in queue
+  async function play(guild, song) {
+    const serverQueue = queue.get(guild.id);
 
-    queue.push(song)
-    
-    return message.channel.send(`Added to queue: **${song.info.title}** by *${song.info.author}*`);
-  } else {
-    // No songs in queue
-    queue.push(song)
+    console.log(serverQueue.songs)
 
-    player.play(song.track);
+    player.play(serverQueue.songs[0])
 
-    return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
+    return serverQueue.textChannel.send(`Now playing: **${search.info.title}** by *${search.info.author}*`);
   }
+
+  async function getSongs(search) {
+    const node = config.nodes[0]
+
+    const params = new URLSearchParams();
+    params.append("identifier", search);
+
+    return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } })
+      .then(res => res.json())
+      .then(data => data.tracks)
+      .catch(err => {
+        console.error(err);
+        return null;
+      });
+  }
+
 }
-
-async function getSongs(search) {
-  const node = manager.nodes.first();
-
-  const params = new URLSearchParams();
-  params.append("identifier", search);
-
-  return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } })
-    .then(res => res.json())
-    .then(data => data.tracks)
-    .catch(err => {
-      console.error(err);
-      return null;
-    });
-}
-
 module.exports.help = {
   command: "Play",
   name: "play",

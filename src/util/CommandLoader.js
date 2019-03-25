@@ -18,14 +18,13 @@ module.exports.load = funo => {
     }
 
     commands.forEach(async cmd => {
-      var props = require(`../commands/${cmd}`);
+      let props = require(`../commands/${cmd}`);
       if (props.help.disabled) {
-
       } else {
-          funo.commands.set(props.help.name.toLowerCase(), props);
-          props.help.aliases.forEach((alias) =>
-              funo.aliases.set(alias, props.help.name.toLowerCase())
-          )
+        funo.commands.set(props.help.name.toLowerCase(), props);
+        props.help.aliases.forEach((alias) =>
+          funo.aliases.set(alias, props.help.name.toLowerCase())
+        )
       }
     });
 
@@ -33,8 +32,12 @@ module.exports.load = funo => {
   });
 };
 
+module.exports.unload = funo => {
+  funo.commands.clear()
+}
+
 module.exports.initCmds = async funo => {
-  for(const [ name, cmd ] of funo.commands) {
-    if(typeof cmd.init === 'function') await cmd.init(funo);
+  for (const [name, cmd] of funo.commands) {
+    if (typeof cmd.init === 'function') await cmd.init(funo);
   }
 }
