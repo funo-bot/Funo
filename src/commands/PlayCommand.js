@@ -1,9 +1,7 @@
+const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const config = require('../../config.json')
 const { URLSearchParams } = require("url");
-
-const guildPlayers = new Map();
-const guildQueues = new Map();
 
 module.exports.run = async (funo, message, args) => {
   if (!message.member.voiceChannel) {
@@ -15,12 +13,12 @@ module.exports.run = async (funo, message, args) => {
   const track = args.join(" ");
   const [song] = await getSongs(`ytsearch: ${track}`, funo.manager);
 
-  if(!guildQueues.has(guildId)) guildQueues.set(guildId, [])
+  if(!funo.guildQueues.has(guildId)) funo.guildQueues.set(guildId, [])
 
-  const queue = guildQueues.get(guildId);
+  const queue = funo.guildQueues.get(guildId);
 
   let player;
-  if(!guildPlayers.has(guildId)) {
+  if(!funo.guildPlayers.has(guildId)) {
     player = await funo.manager.join({
       guild: guildId,
       channel: message.member.voiceChannel.id,
@@ -40,9 +38,9 @@ module.exports.run = async (funo, message, args) => {
       return message.channel.send('End of queue.')
     });
 
-    guildPlayers.set(guildId, player);
+    funo.guildPlayers.set(guildId, player);
   } else {
-    player = guildPlayers.get(guildId);
+    player = funo.guildPlayers.get(guildId);
   }
 
   if(queue.length) {

@@ -15,7 +15,7 @@ const start = Date.now();
   await funo.login(config.token).then(() => {
     const finish = Date.now() - start;
     logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
-    
+
     loader.initCmds(funo);
   });
 
@@ -25,6 +25,9 @@ const start = Date.now();
     user: funo.user.id,
     shards: 0
   });
+
+  funo.guildPlayers = new Map();
+  funo.guildQueues = new Map();
 
   funo.settings = new Enmap({
     name: "settings",
