@@ -11,11 +11,12 @@ const start = Date.now();
 (async () => {
   require("./util/EventLoader")(funo);
   loader.load(funo);
-  loader.initCmds(funo);
 
   await funo.login(config.token).then(() => {
     const finish = Date.now() - start;
     logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
+    
+    loader.initCmds(funo);
   });
 
   funo.config = config

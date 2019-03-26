@@ -2,85 +2,80 @@ const fetch = require("node-fetch");
 const config = require('../../config.json')
 const { URLSearchParams } = require("url");
 
+const guildPlayers = new Map();
+const guildQueues = new Map();
+
 module.exports.run = async (funo, message, args) => {
-  const queue = new Map();
-
-  const voiceChannel = message.member.voiceChannel;
-
-  const player = await funo.manager.join({
-    guild: message.guild.id,
-    channel: message.member.voiceChannel.id,
-    host: config.nodes[0].host
-  });
-
-  if (!voiceChannel) {
+  if (!message.member.voiceChannel) {
     return message.channel.send(new Discord.RichEmbed().setDescription("**You are not in a voice channel**"))
-  };
+  }
+
+  const guildId = message.guild.id;
 
   const track = args.join(" ");
-  const [search] = await getSongs(`ytsearch: ${track}`);
-  const serverQueue = queue.get(message.guild.id)
+  const [song] = await getSongs(`ytsearch: ${track}`, funo.manager);
 
-  player.once("end", async () => {
-      serverQueue.songs.shift();
-      player.play(search.track)
-    })
+  if(!guildQueues.has(guildId)) guildQueues.set(guildId, [])
 
-  return handleVideo(search, message, voiceChannel);
+  const queue = guildQueues.get(guildId);
 
-  async function handleVideo(search, message, voiceChannel) {
-    const serverQueue = queue.get(message.guild.id);
+  let player;
+  if(!guildPlayers.has(guildId)) {
+    player = await funo.manager.join({
+      guild: guildId,
+      channel: message.member.voiceChannel.id,
+      host: config.nodes[0].host
+    }, { selfdeaf: true });
 
-    if (!serverQueue) {
-      const queueConstruct = {
-        textChannel: message.channel,
-        voiceChannel: voiceChannel,
-        songs: [],
-        playing: true
-      };
+    player.on("end", async data => {
+      queue.shift();
 
-      queue.set(message.guild.id, queueConstruct);
-      queueConstruct.songs.push(search.track);
+      if(queue.length) {
+        const song = queue[0];
+        player.play(song.track);
 
-      try {
-        play(message.guild, queueConstruct.songs[0]);
-      } catch (err) {
-        console.error(`I could not join the voice channel: ${error}`);
-        queue.delete(message.guild.id);
+        return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
       }
-    } else {
-      console.log(serverQueue.songs);
-      serverQueue.songs.push(search.track);
-      return message.channel.send(`✅ **${search.info.title}** has been added to the queue!`);
-    }
+      
+      return message.channel.send('End of queue.')
+    });
+
+    guildPlayers.set(guildId, player);
+  } else {
+    player = guildPlayers.get(guildId);
   }
 
-  async function play(guild, song) {
-    const serverQueue = queue.get(guild.id);
+  if(queue.length) {
+    // Songs in queue
 
-    console.log(serverQueue.songs)
+    queue.push(song)
+    
+    return message.channel.send(`Added to queue: **${song.info.title}** by *${song.info.author}*`);
+  } else {
+    // No songs in queue
+    queue.push(song)
 
-    player.play(serverQueue.songs[0])
+    player.play(song.track);
 
-    return serverQueue.textChannel.send(`Now playing: **${search.info.title}** by *${search.info.author}*`);
+    return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
   }
-
-  async function getSongs(search) {
-    const node = config.nodes[0]
-
-    const params = new URLSearchParams();
-    params.append("identifier", search);
-
-    return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } })
-      .then(res => res.json())
-      .then(data => data.tracks)
-      .catch(err => {
-        console.error(err);
-        return null;
-      });
-  }
-
 }
+
+async function getSongs(search, manager) {
+  const node = manager.nodes.first();
+
+  const params = new URLSearchParams();
+  params.append("identifier", search);
+
+  return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } })
+    .then(res => res.json())
+    .then(data => data.tracks)
+    .catch(err => {
+      console.error(err);
+      return null;
+    });
+}
+
 module.exports.help = {
   command: "Play",
   name: "play",
