@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const config = require('../../config.json')
 const { URLSearchParams } = require("url");
 
 module.exports.run = async (funo, message, args) => {
