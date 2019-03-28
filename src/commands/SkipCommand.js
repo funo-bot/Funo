@@ -1,5 +1,5 @@
 module.exports.run = async (funo, message, args) => {
-  return funo.player.stop(message.guild.id)
+  return funo.guildPlayers.get(message.guild.id).stop()
 }
 
 module.exports.help = {

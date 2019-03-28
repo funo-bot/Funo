@@ -17,22 +17,24 @@ module.exports.run = async (funo, message, args) => {
 
   const queue = funo.guildQueues.get(guildId);
 
+  let player; 
+
   if(!funo.guildPlayers.has(guildId)) {
-    funo.player = await funo.manager.join({
+    player = await funo.manager.join({
       guild: guildId,
       channel: message.member.voiceChannel.id,
       host: funo.manager.nodes.first().host
     });
 
-    if (!funo.player) return message.reply("Could not join");
+    if (!player) return message.reply("Could not join");
 
-    funo.player.on("error", console.error);
-    funo.player.on("end", async data => {
+    player.on("error", console.error);
+    player.on("end", async data => {
       queue.shift();
 
       if(queue.length) {
         const song = queue[0];
-        funo.player.play(song.track);
+        player.play(song.track);
 
         return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
       }
@@ -40,9 +42,9 @@ module.exports.run = async (funo, message, args) => {
       message.channel.send('End of queue.')
     });
 
-    funo.guildPlayers.set(guildId, funo.player);
+    funo.guildPlayers.set(guildId, player);
   } else {
-    funo.player = funo.guildPlayers.get(guildId);
+    player = funo.guildPlayers.get(guildId);
   }
 
   if(queue.length) {
@@ -55,7 +57,7 @@ module.exports.run = async (funo, message, args) => {
     // No songs in queue
     queue.push(song)
 
-    funo.player.play(song.track);
+    player.play(song.track);
 
     return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
   }
