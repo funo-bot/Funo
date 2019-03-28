@@ -12,32 +12,35 @@ module.exports.run = async (funo, message, args) => {
   const track = args.join(" ");
   const [song] = await getSongs(`ytsearch: ${track}`, funo.manager);
 
-  if(!funo.guildQueues.has(guildId)) funo.guildQueues.set(guildId, [])
+  if (!funo.guildQueues.has(guildId)) funo.guildQueues.set(guildId, [])
 
   const queue = funo.guildQueues.get(guildId);
 
-  let player; 
+  let player;
 
-  if(!funo.guildPlayers.has(guildId)) {
+  if (!funo.guildPlayers.has(guildId)) {
     player = await funo.manager.join({
       guild: guildId,
       channel: message.member.voiceChannel.id,
       host: funo.manager.nodes.first().host
     });
 
-    if (!player) return message.reply("Could not join");
+    if (!player) return message.channel.send("Could not join the voice channel");
 
     player.on("error", console.error);
     player.on("end", async data => {
       queue.shift();
 
-      if(queue.length) {
+      if (queue.length) {
         const song = queue[0];
         player.play(song.track);
 
-        return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
+        return message.channel.send(new Discord.RichEmbed()
+          .setColor('BLUE')
+          .setDescription(`Now playing: **${song.info.title}** by *${song.info.author}*`)
+        );
       }
-      
+
       message.channel.send('End of queue.')
     });
 
@@ -46,11 +49,11 @@ module.exports.run = async (funo, message, args) => {
     player = funo.guildPlayers.get(guildId);
   }
 
-  if(queue.length) {
+  if (queue.length) {
     // Songs in queue
 
     queue.push(song)
-    
+
     return message.channel.send(`Added to queue: **${song.info.title}** by *${song.info.author}*`);
   } else {
     // No songs in queue
@@ -58,7 +61,10 @@ module.exports.run = async (funo, message, args) => {
 
     player.play(song.track);
 
-    return message.channel.send(`Now playing: **${song.info.title}** by *${song.info.author}*`);
+    return message.channel.send(new Discord.RichEmbed()
+      .setColor('BLUE')
+      .setDescription(`Now playing: **${song.info.title}** by *${song.info.author}*`)
+    );
   }
 }
 
