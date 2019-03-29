@@ -28,7 +28,8 @@ module.exports.run = async (funo, message, args) => {
     if (!player) return message.channel.send("Could not join the voice channel");
 
     player.on("error", console.error);
-    player.on("end", async data => {
+    player.once("end", async data => {
+      if (data.reason === "REPLACED") return;
       queue.shift();
 
       if (queue.length) {
@@ -42,6 +43,7 @@ module.exports.run = async (funo, message, args) => {
       }
 
       message.channel.send('End of queue.')
+      funo.manager.leave(guildId)
     });
 
     funo.guildPlayers.set(guildId, player);
