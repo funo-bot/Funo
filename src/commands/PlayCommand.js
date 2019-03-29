@@ -28,7 +28,7 @@ module.exports.run = async (funo, message, args) => {
     if (!player) return message.channel.send("Could not join the voice channel");
 
     player.on("error", console.error);
-    player.once("end", async data => {
+    player.on("end", async data => {
       if (data.reason === "REPLACED") return;
       queue.shift();
 
