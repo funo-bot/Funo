@@ -61,7 +61,16 @@ module.exports.run = async (funo, message, args) => {
     // No songs in queue
     queue.push(song)
 
-    player.play(song.track);
+    player = await funo.manager.join({
+      guild: guildId,
+      channel: message.member.voiceChannel.id,
+      host: funo.manager.nodes.first().host
+    });
+
+    player.play(song.track)
+
+
+
 
     return message.channel.send(new Discord.RichEmbed()
       .setColor('BLUE')
