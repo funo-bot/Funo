@@ -33,7 +33,7 @@ funo.defaultSettings = {
   logChannel: "mod-logs"
 };
 
-funo.login(config.token).then(() => {
+funo.login(funo.config.token).then(() => {
   const finish = Date.now() - start;
   logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
 });
