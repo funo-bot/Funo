@@ -19,3 +19,5 @@ charttest.js
 
 yarn-error.log
 yarn.lock
+
+*.drone.yml
