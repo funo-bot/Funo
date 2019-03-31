@@ -28,5 +28,6 @@ module.exports.help = {
   description: "Stops the current song and clears the queue",
   aliases: [
     "no"
-  ]
+  ],
+  permissions: []
 };

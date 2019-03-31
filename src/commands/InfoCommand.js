@@ -29,5 +29,6 @@ module.exports.help = {
   description: "Get information about Funo.",
   aliases: [
     "information"
-  ]
+  ],
+  permissions: []
 };

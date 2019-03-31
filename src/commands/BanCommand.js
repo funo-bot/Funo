@@ -53,5 +53,6 @@ module.exports.help = {
   description: "Ban a user from your server",
   aliases: [
     "banuser"
-  ]
+  ],
+  permissions: []
 };

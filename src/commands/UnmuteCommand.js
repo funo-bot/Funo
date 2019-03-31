@@ -36,5 +36,6 @@ module.exports.help = {
   name: "unmute",
   category: "moderation",
   description: "Unmute a user in your server",
-  aliases: []
+  aliases: [],
+  permissions: []
 };

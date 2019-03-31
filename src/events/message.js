@@ -1,10 +1,11 @@
 const config = require("../../config.json");
+const Discord = require('discord.js')
 
 let funo;
 
 module.exports = (message) => {
   funo = message.client;
-  
+
   if (!message.guild || message.author.bot) {
     return;
   }
@@ -28,10 +29,17 @@ module.exports = (message) => {
   } else return;
 
   const cmd = funo.commands.get(cmdStr) || funo.commands.get(funo.aliases.get(cmdStr));
+  const permissions = message.channel.permissionsFor(funo.user);
 
   if (cmd) {
+    if (!permissions.has(cmd.help.permissions)) {
+      return message.channel.send(new Discord.RichEmbed()
+        .setColor('RED')
+        .setDescription('Could not run command. Please make sure I have permissions `' + cmd.help.permissions + '`')
+      );
+    }
     cmd.run(funo, message, args).catch((err) => {
       funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: \`${message.guild.name}\`\nCommand ran: \`${cmd.help.name}\`\n\`\`\`${err.stack}\`\`\``));
     });
   }
-};
+}

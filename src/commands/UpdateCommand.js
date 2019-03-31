@@ -41,5 +41,6 @@ module.exports.help = {
   description: "Update Funo to the latest version.",
   aliases: [
     "refresh"
-  ]
+  ],
+  permissions: []
 };

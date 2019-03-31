@@ -18,5 +18,6 @@ module.exports.help = {
   description: "Get how long Funo has been online for.",
   aliases: [
     "runtime"
-  ]
+  ],
+  permissions: []
 };

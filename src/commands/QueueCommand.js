@@ -33,5 +33,6 @@ module.exports.help = {
   description: "Check the music queue",
   aliases: [
     "queue", "q"
-  ]
+  ],
+  permissions: []
 };

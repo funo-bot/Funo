@@ -125,5 +125,6 @@ module.exports.help = {
   description: "Play a song",
   aliases: [
     "p"
-  ]
+  ],
+  permissions: []
 };

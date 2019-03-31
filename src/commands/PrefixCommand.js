@@ -34,5 +34,6 @@ module.exports.help = {
   description: "Change Funo's prefix for the Discord server.",
   aliases: [
     "setprefix"
-  ]
+  ],
+  permissions: []
 };

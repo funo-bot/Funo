@@ -74,5 +74,6 @@ module.exports.help = {
     "i2t",
     "img2text",
     "img2txt"
-  ]
+  ],
+  permissions: []
 };

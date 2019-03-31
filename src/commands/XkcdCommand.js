@@ -44,5 +44,6 @@ module.exports.help = {
   description: "Get xckd comics.",
   aliases: [
     "comic"
-  ]
+  ],
+  permissions: []
 };

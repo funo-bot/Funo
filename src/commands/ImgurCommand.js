@@ -35,5 +35,6 @@ module.exports.help = {
   name: "imgur",
   category: "fun",
   description: "Search for images with Imgur",
-  aliases: []
+  aliases: [],
+  permissions: []
 }

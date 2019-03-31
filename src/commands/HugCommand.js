@@ -29,5 +29,6 @@ module.exports.help = {
   description: "Hug a user in a Discord server.",
   aliases: [
     "hugging"
-  ]
+  ],
+  permissions: []
 };

@@ -30,5 +30,6 @@ module.exports.help = {
   aliases: [
     "headpat",
     "pet"
-  ]
+  ],
+  permissions: []
 };

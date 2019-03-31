@@ -25,7 +25,6 @@ module.exports.help = {
   name: "8ball",
   category: "fun",
   description: "Ask the magic 8ball a question.",
-  aliases: [
-    "8b"
-  ]
+  aliases: ["8b"],
+  permissions: []
 };

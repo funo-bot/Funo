@@ -41,5 +41,6 @@ module.exports.help = {
   aliases: [
     "dict",
     "dictionary"
-  ]
+  ],
+  permissions: []
 };

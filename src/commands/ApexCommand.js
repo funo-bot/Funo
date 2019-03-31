@@ -39,5 +39,6 @@ module.exports.help = {
   description: "Get a players Apex Legends stats.",
   aliases: [
     "apexstats"
-  ]
+  ],
+  permissions: []
 };

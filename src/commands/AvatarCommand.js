@@ -26,5 +26,6 @@ module.exports.help = {
   description: "Get a users avatar.",
   aliases: [
     "av"
-  ]
+  ],
+  permissions: []
 };

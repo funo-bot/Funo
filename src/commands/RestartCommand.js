@@ -28,5 +28,6 @@ module.exports.help = {
   description: "Restart Funo.",
   aliases: [
     "reload"
-  ]
+  ],
+  permissions: []
 };

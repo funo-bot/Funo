@@ -25,5 +25,6 @@ module.exports.help = {
   description: "Make Funo say something.",
   aliases: [
     "repeat"
-  ]
+  ],
+  permissions: ['MANAGE_MESSAGE']
 };

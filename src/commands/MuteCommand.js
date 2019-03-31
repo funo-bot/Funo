@@ -69,5 +69,6 @@ module.exports.help = {
   description: "Mute a user in your Discord server",
   aliases: [
     "silence"
-  ]
+  ],
+  permissions: []
 };

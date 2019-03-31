@@ -28,5 +28,6 @@ module.exports.help = {
   description: "Pong!",
   aliases: [
     "latency"
-  ]
+  ],
+  permissions: []
 };

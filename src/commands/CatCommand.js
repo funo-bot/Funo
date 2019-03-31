@@ -39,5 +39,6 @@ module.exports.help = {
   aliases: [
     "kitten",
     "cats"
-  ]
+  ],
+  permissions: []
 };

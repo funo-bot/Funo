@@ -17,5 +17,6 @@ module.exports.help = {
   description: "Get a random joke.",
   aliases: [
     "jk"
-  ]
+  ],
+  permissions: []
 };

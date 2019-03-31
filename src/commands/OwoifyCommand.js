@@ -26,5 +26,6 @@ module.exports.help = {
   description: "OwOify your message.",
   aliases: [
     "owo"
-  ]
+  ],
+  permissions: []
 };

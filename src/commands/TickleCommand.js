@@ -29,5 +29,6 @@ module.exports.help = {
   description: "Tickle a user in a Discord server.",
   aliases: [
     "tingle"
-  ]
+  ],
+  permissions: []
 };

@@ -53,5 +53,6 @@ module.exports.help = {
   description: "Kick a user from your server",
   aliases: [
     "kickuser"
-  ]
+  ],
+  permissions: []
 };

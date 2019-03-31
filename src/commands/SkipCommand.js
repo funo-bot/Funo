@@ -29,5 +29,6 @@ module.exports.help = {
     description: "Skips the current song",
     aliases: [
         "skip"
-    ]
+    ],
+    permissions: []
 };

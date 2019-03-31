@@ -35,5 +35,6 @@ module.exports.help = {
   description: "Shows which song is currently playing",
   aliases: [
     "np"
-  ]
+  ],
+  permissions: []
 };

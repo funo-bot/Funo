@@ -124,5 +124,6 @@ module.exports.help = {
   description: "edit an image",
   aliases: [
     "image"
-  ]
+  ],
+  permissions: []
 };

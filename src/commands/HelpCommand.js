@@ -38,5 +38,6 @@ module.exports.help = {
   description: "Get a list of commands",
   aliases: [
     "h"
-  ]
+  ],
+  permissions: []
 };

@@ -15,5 +15,6 @@ module.exports.help = {
   name: "poll",
   category: "fun",
   description: "Create a poll.",
-  aliases: []
+  aliases: [],
+  permissions: []
 };

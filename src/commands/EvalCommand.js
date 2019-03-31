@@ -45,5 +45,6 @@ module.exports.help = {
   category: "util",
   private: true,
   description: "Secrets",
-  aliases: []
+  aliases: [],
+  permissions: []
 };
