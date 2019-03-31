@@ -35,5 +35,5 @@ funo.defaultSettings = {
 
 funo.login(funo.config.token).then(() => {
   const finish = Date.now() - start;
-  logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
+  funo.logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
 });
