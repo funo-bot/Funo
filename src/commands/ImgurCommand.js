@@ -1,11 +1,12 @@
 const config = require("../../config.json")
 const Discord = require("discord.js")
 const fetch = require("node-fetch")
+const URL = require('url').URL
 
 module.exports.run = async (funo, message, args) => {
   const imgurOptions = { 'Authorization': config.IMGUR_CLIENT_ID }
 
-  await fetch('https://api.imgur.com/3/gallery/search/top/0/?q=' + args.join(" "), {
+  await fetch(new URL('https://api.imgur.com/3/gallery/search/top/0/?q=' + args.join(" ")), {
     headers: {
       'Authorization': `Client-ID ${imgurOptions.Authorization}`
     }
