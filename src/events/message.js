@@ -32,7 +32,7 @@ module.exports = (message) => {
   const permissions = message.channel.permissionsFor(funo.user);
 
   if (cmd) {
-    message,channel.startTyping()
+    message.channel.startTyping()
     if (!permissions.has(cmd.help.permissions)) {
       return message.channel.send(new Discord.RichEmbed()
         .setColor('RED')
