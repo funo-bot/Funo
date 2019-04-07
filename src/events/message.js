@@ -32,7 +32,6 @@ module.exports = (message) => {
   const permissions = message.channel.permissionsFor(funo.user);
 
   if (cmd) {
-<<<<<<< HEAD
     message.channel.startTyping()
     if (!permissions.has(cmd.help.permissions)) {
       return message.channel.send(new Discord.RichEmbed()
@@ -41,9 +40,6 @@ module.exports = (message) => {
       );
     }
     cmd.run(funo, message, args).catch((err) => {
-=======
-     cmd.run(funo, message, args).catch((err) => {
->>>>>>> music-rewrite
       funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: \`${message.guild.name}\`\nCommand ran: \`${cmd.help.name}\`\n\`\`\`${err.stack}\`\`\``));
     });
     message.channel.stopTyping()
