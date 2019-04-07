@@ -10,3 +10,18 @@ steps:
     tags: [ "latest", "${DRONE_COMMIT_SHA:0:7}" ]
     json_key:
       from_secret: google_credentials
+- name: deploy
+  image: peloton/drone-rancher
+  settings:
+    url:
+      from_secret: rancher_address
+    access_key:
+      from_secret: rancher_access_key
+    secret_key:
+      from_secret: rancher_access_secret
+    service:
+      from_secret: rancher_service
+    docker_image:
+      from_secret: docker_image
+    confirm: true
+    timeout: 60
