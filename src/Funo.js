@@ -1,5 +1,12 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
+<<<<<<< HEAD
+=======
+const config = require(process.env.CONFIG_LOCATION || "../config.json");
+const logger = require("./util/Logger");
+const loader = require("./util/CommandLoader");
+const lavalink = require("discord.js-lavalink");
+>>>>>>> music-rewrite
 
 const funo = new Discord.Client({
   disableEveryone: true,
@@ -38,36 +45,70 @@ const funo = new Discord.Client({
 });
 const start = Date.now();
 
-funo.musicTask = require("./util/musicHandler")
-funo.musicTasks = {}
+(async () => {
+  require("./util/EventLoader")(funo);
+  loader.load(funo);
 
+<<<<<<< HEAD
 funo.config = require(process.env.CONFIG_LOCATION || "../config.json");
 funo.logger = require("./util/Logger");
 
 require("./util/EventLoader")(funo);
 require("./util/CommandLoader")(funo);
 require("./util/DblHelper")(funo);
+=======
+  await funo.login(config.token).then(() => {
+    const finish = Date.now() - start;
+    logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
+>>>>>>> music-rewrite
 
-funo.settings = new Enmap({
-  name: "settings",
-  fetchAll: false,
-  autoFetch: true,
-  cloneLevel: "deep"
-});
+    loader.initCmds(funo);
+  });
 
+<<<<<<< HEAD
 funo.stats = new Enmap({
   name: "settings",
   fetchAll: false,
   autoFetch: true,
   cloneLevel: "deep"
 });
+=======
+  funo.config = config
 
-funo.defaultSettings = {
-  prefix: ".",
-  logChannel: "mod-logs"
-};
+  funo.manager = new lavalink.PlayerManager(funo, config.nodes, {
+    user: funo.user.id,
+    shards: 0
+  });
 
+  funo.guildPlayers = new Map();
+  funo.guildQueues = new Map();
+
+  funo.settings = new Enmap({
+    name: "settings",
+    fetchAll: false,
+    autoFetch: true,
+    cloneLevel: "deep"
+  });
+>>>>>>> music-rewrite
+
+  funo.stats = new Enmap({
+    name: "settings",
+    fetchAll: false,
+    autoFetch: true,
+    cloneLevel: "deep"
+  });
+
+<<<<<<< HEAD
 funo.login(funo.config.token).then(() => {
   const finish = Date.now() - start;
   funo.logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
 });
+=======
+  funo.defaultSettings = {
+    prefix: ".",
+    logChannel: "mod-logs"
+  };
+
+  require("./util/LavaLink")(funo);
+})()
+>>>>>>> music-rewrite
