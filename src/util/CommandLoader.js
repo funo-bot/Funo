@@ -16,15 +16,6 @@ module.exports.load = funo => {
       return;
     }
 
-<<<<<<< HEAD
-    commands.forEach((cmd) => {
-      const props = require(`../commands/${cmd}`);
-      if (props.help.disabled) {
-        
-      } else {
-        funo.commands.set(props.help.name.toLowerCase(), props);
-        props.help.aliases.forEach(alias => funo.aliases.set(alias, props.help.name.toLowerCase()));
-=======
     commands.forEach(async cmd => {
       let props = require(`../commands/${cmd}`);
       if (props.help.disabled) {
@@ -33,14 +24,11 @@ module.exports.load = funo => {
         props.help.aliases.forEach((alias) =>
           funo.aliases.set(alias, props.help.name.toLowerCase())
         )
->>>>>>> music-rewrite
       }
     });
     funo.logger.info('All commands loaded!');
   });
 };
-<<<<<<< HEAD
-=======
 
 module.exports.unload = funo => {
   funo.commands.clear()
@@ -51,4 +39,3 @@ module.exports.initCmds = async funo => {
     if (typeof cmd.init === 'function') await cmd.init(funo);
   }
 }
->>>>>>> music-rewrite
