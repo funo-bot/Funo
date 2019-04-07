@@ -21,14 +21,9 @@ module.exports.help = {
   command: "Queue",
   name: "queue",
   category: "music",
-<<<<<<< HEAD
   description: "Check the music queue",
   aliases: [
     "queue", "q"
   ],
   permissions: []
-=======
-  description: "Display the music queue.",
-  aliases: ["q"]
->>>>>>> music-rewrite
 };

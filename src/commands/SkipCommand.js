@@ -3,7 +3,6 @@ module.exports.run = async (funo, message, args) => {
 }
 
 module.exports.help = {
-<<<<<<< HEAD
     command: "Skip",
     name: "skip",
     category: "music",
@@ -12,11 +11,4 @@ module.exports.help = {
         "skip"
     ],
     permissions: []
-=======
-  command: "Skip",
-  name: "skip",
-  category: "music",
-  description: "Skips the current song",
-  aliases: []
->>>>>>> music-rewrite
 };

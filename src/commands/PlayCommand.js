@@ -98,14 +98,9 @@ module.exports.help = {
   command: "Play",
   name: "play",
   category: "music",
-<<<<<<< HEAD
   description: "Play a song",
   aliases: [
     "p"
   ],
   permissions: []
-=======
-  description: "Play some music",
-  aliases: ["p"]
->>>>>>> music-rewrite
 };
