@@ -9,3 +9,5 @@ EXPOSE 5000
 RUN npm i
 
 CMD [ "npm", "start" ]
+CMD ["java", "-jar", "/lib/Lavalink.jar"]
+
