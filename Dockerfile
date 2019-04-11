@@ -9,6 +9,5 @@ EXPOSE 2333
 
 RUN npm i
 
-CMD ["java", "-jar", "/lib/Lavalink.jar"]
 CMD [ "npm", "start" ]
 
