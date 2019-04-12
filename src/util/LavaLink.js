@@ -1,12 +1,14 @@
 const lavalink = require("discord.js-lavalink");
 const logger = require("./Logger");
+const config = require('../../config.json')
 
 module.exports = (funo) => {
 
    funo.lavalinkNode = new lavalink.Node(funo.manager, {
-    address: `http://80.241.223.109:2333`,
-    host: '80.241.223.109',
-    port: 2333,
+    address: `http://${config.nodes[0].host}:${config.nodes[0].port}`,
+    host: config.nodes[0].host,
+    port: config.nodes[0].port,
+    password: config.nodes[0].password,
     reconnectInterval: 120000
   })
 
