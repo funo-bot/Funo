@@ -7,7 +7,7 @@ module.exports = (funo) => {
     address: `http://80.241.223.109:2333`,
     host: '80.241.223.109',
     port: 2333,
-    reconnectInterval: 1000
+    reconnectInterval: 120000
   })
 
   funo.lavalinkNode.on('ready', () => {
