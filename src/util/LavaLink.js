@@ -4,7 +4,7 @@ const config = require('../../config.json')
 
 module.exports = (funo) => {
 
-   funo.lavalinkNode = new lavalink.Node(funo.manager, {
+  funo.lavalinkNode = new lavalink.Node(funo.manager, {
     address: `http://${config.nodes[0].host}:${config.nodes[0].port}`,
     host: config.nodes[0].host,
     port: config.nodes[0].port,
@@ -18,5 +18,3 @@ module.exports = (funo) => {
 
   funo.lavalinkNode.on('error', () => console.error)
 }
-
-
