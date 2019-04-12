@@ -4,8 +4,8 @@ const logger = require("./Logger");
 module.exports = (funo) => {
 
    funo.lavalinkNode = new lavalink.Node(funo.manager, {
-    address: `http://localhost:2333`,
-    host: 'localhost',
+    address: `http:/80.241.223.109:2333`,
+    host: '80.241.223.109',
     password: 'test123',
     port: 2333,
     reconnectInterval: 1000
