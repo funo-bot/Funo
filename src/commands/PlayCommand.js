@@ -32,7 +32,7 @@ module.exports.run = async (funo, message, args) => {
       if (data.reason === "REPLACED") return;
       queue.shift();
 
-      if (queue.length) {
+      if (queue.length > 0) {
         const song = queue[0];
         player.play(song.track);
 
@@ -68,9 +68,6 @@ module.exports.run = async (funo, message, args) => {
     });
 
     player.play(song.track)
-
-
-
 
     return message.channel.send(new Discord.RichEmbed()
       .setColor('BLUE')
