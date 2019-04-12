@@ -14,6 +14,8 @@ module.exports = (funo) => {
   funo.lavalinkNode.on('ready', () => {
     logger.info("Successfully connected to Lavalink server on " + funo.lavalinkNode.address)
   })
+
+  funo.lavalinkNode.on('error', () => console.error)
 }
 
 
