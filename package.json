@@ -22,7 +22,7 @@
     "nekos.life": "^2.0.2",
     "node-fetch": "^2.3.0",
     "ping": "git+https://github.com/danielzzz/node-ping#b4b064e",
-    "urban.js": "^2.4.3",
+    "urban.js": "^2.4.3"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
