@@ -50,5 +50,5 @@ const funo = new Discord.Client({disableEveryone: true});
     logChannel: "mod-logs"
   };
 
-  //require("./util/LavaLink")(funo);
+  require("./util/LavaLink")(funo);
 })()
