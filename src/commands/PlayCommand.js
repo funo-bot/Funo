@@ -16,57 +16,47 @@ module.exports.run = async (funo, message, args) => {
 
   const queue = funo.guildQueues.get(guildId);
 
-  let player;
+  let player = await funo.manager.join({
+    guild: guildId,
+    channel: message.member.voiceChannel.id,
+    host: funo.manager.nodes.first().host
+  })
 
   if (!funo.guildPlayers.has(guildId)) {
-    player = await funo.manager.join({
-      guild: guildId,
-      channel: message.member.voiceChannel.id,
-      host: funo.manager.nodes.first().host
-    });
-
-    if (!player) return message.channel.send("Could not join the voice channel");
-
-    player.on("error", console.error);
-    player.on("end", async data => {
-      if (data.reason === "REPLACED") return;
-      
-      queue.shift();
-
-      if (queue.length > 0) {
-        const song = queue[0];
-        player.play(song.track);
-
-        return message.channel.send(new Discord.RichEmbed()
-          .setColor('BLUE')
-          .setDescription(`Now playing: **${song.info.title}** by *${song.info.author}*`)
-        );
-      }
-
-      message.channel.send('End of queue.')
-      funo.manager.leave(guildId)
-    });
-
-    funo.guildPlayers.set(guildId, player);
-  } else {
-    //player = funo.guildPlayers.get(guildId);
+    player;
   }
 
-  if (queue.length > 0) {
-    // Songs in queue
+  if (!player) return message.channel.send("Could not join the voice channel");
 
+  player.once("error", console.error);
+  player.once("end", async data => {
+    console.log('called')
+    queue.shift();
+
+    if (queue.length > 1) {
+      const song = queue[0];
+      player.play(song.track);
+
+      return message.channel.send(new Discord.RichEmbed()
+        .setColor('BLUE')
+        .setDescription(`Now playing: **${song.info.title}** by *${song.info.author}*`)
+      );
+    } else {
+      message.channel.send('End of queue.')
+      funo.manager.leave(guildId)
+    }
+  });
+
+  funo.guildPlayers.set(guildId, player);
+
+  if (queue.length > 1) {
+    // Songs in queue
     queue.push(song)
 
     return message.channel.send(`Added to queue: **${song.info.title}** by *${song.info.author}*`);
   } else {
     // No songs in queue
     queue.push(song)
-
-    player = await funo.manager.join({
-      guild: guildId,
-      channel: message.member.voiceChannel.id,
-      host: funo.manager.nodes.first().host
-    });
 
     player.play(song.track)
 
@@ -100,5 +90,5 @@ module.exports.help = {
   aliases: [
     "p"
   ],
-  permissions: []
+  permissions: ['CONNECT', 'SPEAK']
 };
