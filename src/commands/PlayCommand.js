@@ -30,6 +30,7 @@ module.exports.run = async (funo, message, args) => {
     player.on("error", console.error);
     player.on("end", async data => {
       if (data.reason === "REPLACED") return;
+      
       queue.shift();
 
       if (queue.length > 0) {
@@ -51,7 +52,7 @@ module.exports.run = async (funo, message, args) => {
     player = funo.guildPlayers.get(guildId);
   }
 
-  if (queue.length) {
+  if (queue.length > 0) {
     // Songs in queue
 
     queue.push(song)
