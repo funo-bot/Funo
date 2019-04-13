@@ -49,7 +49,7 @@ module.exports.run = async (funo, message, args) => {
 
     funo.guildPlayers.set(guildId, player);
   } else {
-    player = funo.guildPlayers.get(guildId);
+    //player = funo.guildPlayers.get(guildId);
   }
 
   if (queue.length > 0) {
