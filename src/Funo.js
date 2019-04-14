@@ -38,13 +38,6 @@ const funo = new Discord.Client({disableEveryone: true});
     cloneLevel: "deep"
   });
 
-  funo.stats = new Enmap({
-    name: "settings",
-    fetchAll: false,
-    autoFetch: true,
-    cloneLevel: "deep"
-  });
-
   funo.defaultSettings = {
     prefix: ".",
     logChannel: "mod-logs"
