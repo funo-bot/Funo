@@ -1,5 +1,6 @@
 module.exports.run = async (funo, message, args) => {
   funo.guildQueues.clear(message.guild.id)
+  funo.guildPlayers.clear(message.guild.id)
   funo.manager.leave(message.guild.id)
 }
 

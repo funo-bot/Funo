@@ -26,5 +26,5 @@ module.exports.help = {
   aliases: [
     "repeat"
   ],
-  permissions: ['MANAGE_MESSAGE']
+  permissions: []
 };
