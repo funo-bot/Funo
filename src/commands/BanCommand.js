@@ -54,5 +54,5 @@ module.exports.help = {
   aliases: [
     "banuser"
   ],
-  permissions: []
+  permissions: ['BAN_MEMBERS']
 };

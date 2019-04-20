@@ -54,5 +54,5 @@ module.exports.help = {
   aliases: [
     "kickuser"
   ],
-  permissions: []
+  permissions: ['KICK_MEMBERS']
 };
