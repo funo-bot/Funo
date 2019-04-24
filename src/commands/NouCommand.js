@@ -8,5 +8,5 @@ module.exports.help = {
   category: "fun",
   description: "Say NO U to someone",
   aliases: [],
-  permissions: ['CONNECT', 'SPEAK']
+  permissions: []
 };
