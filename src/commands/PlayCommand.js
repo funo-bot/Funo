@@ -29,20 +29,19 @@ module.exports.run = async (funo, message, args) => {
 
     player.on("error", console.error);
     player.on("end", async data => {
-      
       if (queue.length) {
         queue.shift();
         const song = queue[0];
         player.play(song.track);
 
-        return message.channel.send(new Discord.RichEmbed()
+        message.channel.send(new Discord.RichEmbed()
           .setColor('BLUE')
           .setDescription(`Now playing: **${song.info.title}** by *${song.info.author}*`)
         );
+      } else {
+        message.channel.send('End of queue.')
+        funo.manager.leave(guildId)
       }
-
-      message.channel.send('End of queue.')
-      funo.manager.leave(guildId)
     });
 
     funo.guildPlayers.set(guildId, player);
@@ -67,9 +66,6 @@ module.exports.run = async (funo, message, args) => {
     });
 
     player.play(song.track)
-
-
-
 
     return message.channel.send(new Discord.RichEmbed()
       .setColor('BLUE')
