@@ -8,7 +8,7 @@ module.exports.help = {
   category: "music",
   description: "Skips the current song",
   aliases: [
-    "skip"
+    "s"
   ],
   permissions: []
 };
