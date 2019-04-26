@@ -28,10 +28,9 @@ module.exports.run = async (funo, message, args) => {
     if (!player) return message.channel.send("Could not join the voice channel");
 
     player.on("error", console.error);
-    player.on("end", async data => {
-      queue.shift();
-      
+    player.on("end", async data => {      
       if (queue.length) {
+        queue.shift();
         const song = queue[0];
         player.play(song.track);
 
