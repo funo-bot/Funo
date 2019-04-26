@@ -32,14 +32,14 @@ module.exports = (message) => {
   const permissions = message.channel.permissionsFor(funo.user);
 
   if (cmd) {
-    message.channel.startTyping()
     if (!permissions.has(cmd.help.permissions)) {
       return message.channel.send(new Discord.RichEmbed()
         .setColor('RED')
         .setDescription('Could not run command. Please make sure I have permissions `' + cmd.help.permissions + '`')
       );
     }
-    cmd.run(funo, message, args).catch((err) => {
+    message.channel.startTyping()
+    await cmd.run(funo, message, args).catch((err) => {
       funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: \`${message.guild.name}\`\nCommand ran: \`${cmd.help.name}\`\n\`\`\`${err.stack}\`\`\``));
     });
     message.channel.stopTyping()
