@@ -29,8 +29,9 @@ module.exports.run = async (funo, message, args) => {
 
     player.on("error", console.error);
     player.on("end", async data => {
+      queue.shift();
+      
       if (queue.length) {
-        queue.shift();
         const song = queue[0];
         player.play(song.track);
 
