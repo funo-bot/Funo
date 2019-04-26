@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 
 let funo;
 
-module.exports = (message) => {
+module.exports = async (message) => {
   funo = message.client;
 
   if (!message.guild || message.author.bot) {
