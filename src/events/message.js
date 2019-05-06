@@ -10,6 +10,10 @@ module.exports = async (message) => {
     return;
   } 
 
+  const permissions = message.channel.permissionsFor(funo.user);
+
+  if (!permissions.has('SEND_MESSAGES')) return
+
   let messageArray = message.content.split(/\s+/g);
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
@@ -29,7 +33,6 @@ module.exports = async (message) => {
   } else return;
 
   const cmd = funo.commands.get(cmdStr) || funo.commands.get(funo.aliases.get(cmdStr));
-  const permissions = message.channel.permissionsFor(funo.user);
 
   if (cmd) {
     if (!permissions.has(cmd.help.permissions)) {
