@@ -1,4 +1,3 @@
-const config = require("../../config.json");
 const Discord = require('discord.js')
 
 let funo;
@@ -19,7 +18,7 @@ module.exports = async (message) => {
   let args = messageArray.slice(1);
 
   const guildConf = funo.settings.ensure(message.guild.id, funo.defaultSettings);
-  const prefix = guildConf.prefix || config.prefix
+  const prefix = guildConf.prefix || funo.prefix
 
   let cmdStr = '';
   if (command === `<@${funo.user.id}>` || command === `<@!${funo.user.id}>`) {
@@ -28,7 +27,7 @@ module.exports = async (message) => {
     cmdStr = args.shift().toLowerCase()
   } else if (message.content.indexOf(prefix) === 0) {
     cmdStr = command.slice(prefix.length)
-  } else if (message.content === config.prefix + "prefix") {
+  } else if (message.content === funo.prefix + "prefix") {
     cmdStr = 'prefix'
   } else return;
 
@@ -42,9 +41,7 @@ module.exports = async (message) => {
       );
     }
     message.channel.startTyping()
-    await cmd.run(funo, message, args).catch((err) => {
-      funo.guilds.get(config.logServerID).channels.find(c => c.name == config.errorChannelName).send((`**\`AN ERROR HAS OCCURED\`**\n\nGuild: \`${message.guild.name}\`\nCommand ran: \`${cmd.help.name}\`\n\`\`\`${err.stack}\`\`\``));
-    });
+    await cmd.run(funo, message, args)
     message.channel.stopTyping()
   }
 }

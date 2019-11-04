@@ -1,10 +1,9 @@
 const Discord = require("discord.js");
-const config = require("../../config.json");
 
 module.exports.run = async (funo, message, args) => {
 
-  if (!config.ownerid.includes(message.author.id)) {
-    return;
+  if (message.author.id != process.env.OWNER_ID) {
+    return
   }
 
   function clean(text) {
