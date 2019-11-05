@@ -46,7 +46,7 @@ export class Funo extends Client {
       cmdStr = args.shift().toLowerCase()
     } else if (message.content.indexOf(prefix) === 0) {
       cmdStr = command.slice(prefix.length)
-    } else if (message.content === funo.prefix + "prefix") {
+    } else if (message.content === this.prefix + "prefix") {
       cmdStr = 'prefix'
     } else return
   
