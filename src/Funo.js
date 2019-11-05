@@ -1,35 +1,67 @@
-const Discord = require("discord.js");
-const Enmap = require("enmap");
-const loader = require("./util/CommandLoader");
+import { Client, RichEmbed } from 'discord.js'
 
-const funo = new Discord.Client({disableEveryone: true});
+import loader from './util/CommandLoader'
+import Logger from './util/Logger'
 
-funo.prefix = '!'
+const logger = new Logger()
 
-;(async () => {
-  const start = Date.now();
+export class Funo extends Client {
 
-  funo.logger = require("./util/Logger");
+  constructor() {
+    super()
 
-  require("./util/EventLoader")(funo);
-  loader.load(funo);
+    this.on('message', message => this.onMessageReceived(message))
+  }
 
-  await funo.login(process.env.TOKEN).then(() => {
-    const finish = Date.now() - start;
-    funo.logger.info(`Done! (${Math.floor(finish / 10)}ms)`);
+  async init() {
+    const start = Date.now()
 
-    loader.initCmds(funo);
-  });
+    await loader.load(this)
 
-  funo.settings = new Enmap({
-    name: "settings",
-    fetchAll: false,
-    autoFetch: true,
-    cloneLevel: "deep"
-  });
+    await this.login(process.env.TOKEN).then(() => {
+      const finish = Date.now() - start
+      logger.info(`Done! (${Math.floor(finish / 10)}ms)`)
 
-  funo.defaultSettings = {
-    prefix: ".",
-    logChannel: "mod-logs"
-  };
-})()
+      loader.initCmds(this)
+    });
+  }
+
+  async onMessageReceived(message) {
+    if (!message.guild || message.author.bot) return
+  
+    const permissions = message.channel.permissionsFor(this.user)
+  
+    if (!permissions.has('SEND_MESSAGES')) return
+  
+    let messageArray = message.content.split(/\s+/g)
+    let command = messageArray[0].toLowerCase()
+    let args = messageArray.slice(1)
+  
+    const prefix = '.'
+  
+    let cmdStr = ''
+    if (command === `<@${this.user.id}>` || command === `<@!${this.user.id}>`) {
+      if (messageArray.length < 2) return
+  
+      cmdStr = args.shift().toLowerCase()
+    } else if (message.content.indexOf(prefix) === 0) {
+      cmdStr = command.slice(prefix.length)
+    } else if (message.content === funo.prefix + "prefix") {
+      cmdStr = 'prefix'
+    } else return
+  
+    const cmd = this.commands.get(cmdStr) || this.commands.get(this.aliases.get(cmdStr))
+  
+    if (cmd) {
+      if (!permissions.has(cmd.help.permissions)) {
+        return message.channel.send(new RichEmbed()
+          .setColor('RED')
+          .setDescription('Could not run command. Please make sure I have permissions `' + cmd.help.permissions + '`')
+        )
+      }
+      message.channel.startTyping()
+      await cmd.run(this, message, args)
+      message.channel.stopTyping()
+    }
+  }
+}

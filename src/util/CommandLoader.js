@@ -1,18 +1,21 @@
-const Discord = require('discord.js');
-const fs = require('fs');
+import { Collection } from 'discord.js'
+import Logger from './Logger'
+import fs from 'fs'
+
+const logger = new Logger()
 
 module.exports.load = funo => {
-  funo.commands = new Discord.Collection();
-  funo.aliases = new Discord.Collection();
+  funo.commands = new Collection();
+  funo.aliases = new Collection();
 
   fs.readdir(`${__dirname}/../commands`, (e, files) => {
     if (e) {
-      funo.logger.error(e);
+      logger.error(e);
     }
 
     const commands = files.filter(f => f.split('.').pop() === 'js');
     if (commands.length <= 0) {
-      funo.logger.info('No commands to load!');
+      logger.info('No commands to load!');
       return;
     }
 
@@ -26,13 +29,9 @@ module.exports.load = funo => {
         )
       }
     });
-    funo.logger.info('All commands loaded!');
+    logger.info('All commands loaded!');
   });
 };
-
-module.exports.unload = funo => {
-  funo.commands.clear()
-}
 
 module.exports.initCmds = async funo => {
   for (const [name, cmd] of funo.commands) {

@@ -1,5 +1,14 @@
-const chalk = require("chalk");
+import chalk from 'chalk'
 
-module.exports.info = (message) => console.log(`${chalk.cyan("[INF]")} ${message}`);
-module.exports.error = (message) => console.log(`${chalk.red("[ERR]")} ${message}`);
+export default class Logger {
+
+  info(...args) {
+    console.log(chalk.yellow("[INF]"), ...args)
+  }
+
+  error(...args) {
+    console.log(chalk.red("[ERR]"), ...args)
+  }
+}
+
 module.exports.debug = (message) => console.log(`${chalk.yellow("[DBG]")} ${message}`);

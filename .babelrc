@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime"
+    ],
+    [
+      "@babel/plugin-syntax-dynamic-import"
+    ],
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": true
+        }
+      }
+    ]
+  ]
+}
