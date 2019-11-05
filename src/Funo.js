@@ -6,7 +6,6 @@ const funo = new Discord.Client({disableEveryone: true});
 
 funo.prefix = '!'
 
-
 ;(async () => {
   const start = Date.now();
 
