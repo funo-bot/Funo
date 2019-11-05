@@ -19,7 +19,6 @@ module.exports.run = async (funo, message, args) => {
     let moderation = await funo.commands.filter(c => c.help.category === "moderation").map(c => "`" + c.help.name + "`").join(", ")
     let fun = await funo.commands.filter(c => c.help.category === "fun").map(c => "`" + c.help.name + "`").join(", ")
     let image = await funo.commands.filter(c => c.help.category === "image").map(c => "`" + c.help.name + "`").join(", ")
-    let music = await funo.commands.filter(c => c.help.category === "music").map(c => "`" + c.help.name + "`").join(", ")
 
     commandList.setAuthor('Funo Commands', message.client.user.displayAvatarURL)
     commandList.setColor("#c63364");
